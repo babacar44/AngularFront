@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { PartenaireComponent } from './partenaire/partenaire.component';
 import { AuthService } from './auth.service';
 import { PartenaireService } from './partenaire.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { PartenaireService } from './partenaire.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService,PartenaireService],
+  providers: [AuthService,AuthGuard,PartenaireService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
