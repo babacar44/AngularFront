@@ -14,7 +14,7 @@ const routes: Routes = [
   {
     path: 'partenaire',
     component: PartenaireComponent,
-    canActivate : [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
