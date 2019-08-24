@@ -1,0 +1,56 @@
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="mb-0">Register</h3>
+      </div>
+      <div class="card-body">
+        <form class="form">
+          <div class="form-group">
+            <label for="">Email</label>
+            <input [(ngModel)]="registerUserData.email" name="email" type="text" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">Password</label>
+            <input [(ngModel)]="registerUserData.password" name="password" type="password" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">Password Confirmation</label>
+            <input [(ngModel)]="registerUserData.passconf" name="passconf" type="password" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">nomComplet</label>
+            <input [(ngModel)]="registerUserData.nomComplet" name="nomComplet" type="text" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">propriete</label>
+            <input [(ngModel)]="registerUserData.propriete" name="propriete" type="text" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">adresse</label>
+            <input [(ngModel)]="registerUserData.adresse" name="adresse" type="text" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">telephone</label>
+            <input [(ngModel)]="registerUserData.telephone" name="telephone" type="text" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">imageFile</label>
+            <input [(ngModel)]="registerUserData.imageFile" name="imageFile" type="text" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">partenaire</label>
+            <input [(ngModel)]="registerUserData.partenaire" name="partenaire" type="text" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">compte</label>
+            <input [(ngModel)]="registerUserData.compte" name="compte" type="text" class="form-control rounded-0" required>
+          </div>
+          <button (click)="registerUser()" type="button" class="btn btn-primary float-right">
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
