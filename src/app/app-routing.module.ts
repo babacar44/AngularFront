@@ -3,10 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { PartenaireComponent } from './partenaire/partenaire.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AccueilComponent } from './accueil/accueil.component';
 import { AuthGuard } from './auth.guard';
+import { DepotComponent } from './depot/depot.component';
+import { OperationsComponent } from './operations/operations.component';
+import { CompteComponent } from './compte/compte.component';
 
 const routes: Routes = [
-  {
+  { 
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
@@ -23,6 +27,22 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'accueil',
+    component: AccueilComponent
+  },
+  {
+    path: 'depot',
+    component: DepotComponent
+  },
+  {
+    path: 'operations',
+    component: OperationsComponent
+  },
+  {
+    path: 'compte',
+    component: CompteComponent
   },
 ];
 

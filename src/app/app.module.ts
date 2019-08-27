@@ -11,15 +11,23 @@ import { LoginComponent } from './login/login.component';
 import { PartenaireComponent } from './partenaire/partenaire.component';
 import { AuthService } from './auth.service';
 import { PartenaireService } from './partenaire.service';
-import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { DepotComponent } from './depot/depot.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { OperationsComponent } from './operations/operations.component';
+import { CompteComponent } from './compte/compte.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    PartenaireComponent
+    PartenaireComponent,
+    DepotComponent,
+    AccueilComponent,
+    OperationsComponent,
+    CompteComponent
   ],
   imports: [
     BrowserModule,
