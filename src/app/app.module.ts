@@ -17,6 +17,8 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { OperationsComponent } from './operations/operations.component';
 import { CompteComponent } from './compte/compte.component';
 import { AuthGuard } from './auth.guard';
+import { NavbarComponent } from './navbar/navbar.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { AuthGuard } from './auth.guard';
     DepotComponent,
     AccueilComponent,
     OperationsComponent,
-    CompteComponent
+    CompteComponent,
+    NavbarComponent,
+    UploadImageComponent
   ],
   imports: [
     BrowserModule,

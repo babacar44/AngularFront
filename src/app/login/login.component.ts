@@ -18,9 +18,7 @@ export class LoginComponent implements OnInit {
   }
   
   loginUser(user: any){
-    this._auth.loginUser(this.loginUserData)
-    // this._auth.loginUser(user)
-
+    this._auth.login(this.loginUserData)
     .subscribe(
       res=>{
         let jwt = res.body;

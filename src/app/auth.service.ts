@@ -8,8 +8,8 @@ import { JwtHelperService } from "@auth0/angular-jwt";
   providedIn: 'root'
 })
 export class AuthService {
+  // private _registerUrl = " http://localhost:8000/api/inscription"
 
-  private _registerUrl = " http://localhost:8000/api/inscription"
   private _loginUrl = "  http://localhost:8000/api/login"
 
   jwt : string;
@@ -19,12 +19,31 @@ export class AuthService {
   constructor(private http : HttpClient,
       private _router: Router) { }
 
-  registerUser(user: any){
-    return this.http.post<any>(this._registerUrl, user)
+  registerUser(User: { imageName: any; nomComplet?: any; propriete?: any; adresse?: any; statut?: any; email?: any; telephone?: any; password?: any; partenaire?: any; compte?: any; passwordConfirmation?: any; profil?: any; }){
+    // return this.http.post<any>(this._registerUrl, user)
+
+    const endpoint = 'http://localhost:8000/api/inscription';
+    const formData: FormData = new FormData();
+    formData.append('imageName',User.imageName);
+    formData.append('nomComplet',User.nomComplet);
+    formData.append('propriete',User.propriete);
+    formData.append('adresse',User.adresse);
+    formData.append('statut',User.statut);
+    formData.append('email',User.email);
+    formData.append('telephone',User.telephone);
+    formData.append('password',User.password);
+    formData.append('partenaire',User.partenaire);
+    formData.append('compte',User.compte);
+    formData.append('passwordConfirmation',User.passwordConfirmation);
+    formData.append('profil',User.profil);
+
+    return this.http
+    .post(endpoint, formData);
+
   }
 
   
-  loginUser(user: any){
+  login(user: any){
     return this.http.post<any>(this._loginUrl, user, {observe:'response'})
     
   }
@@ -36,7 +55,7 @@ export class AuthService {
 
   logoutUser(){
     localStorage.removeItem('token')
-    this._router.navigate(['/accueil'])
+    this._router.navigate(['/login'])
   }
   getToken(){
     return localStorage.getItem('token')

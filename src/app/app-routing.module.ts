@@ -8,6 +8,7 @@ import { AuthGuard } from './auth.guard';
 import { DepotComponent } from './depot/depot.component';
 import { OperationsComponent } from './operations/operations.component';
 import { CompteComponent } from './compte/compte.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
   { 
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: 'compte',
     component: CompteComponent
+  },
+  {
+    path: 'navbar',
+    component: NavbarComponent
   },
 ];
 
