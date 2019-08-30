@@ -12,8 +12,8 @@ export class DepotService {
 
   constructor(private http : HttpClient) {}
   
-  deposer(somme : Depot):Observable<any>{
-    return this.http.post(this._depotUrl+"/api/depot",somme);
-  }
+  // deposer(somme : Depot):Observable<any>{
+  //   return this.http.post(this._depotUrl+"/api/depot",somme);
+  // }
 
 }

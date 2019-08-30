@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Depot } from '../Classes/depot';
 import { DepotService } from '../services/depot.service';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-depot',
@@ -9,26 +11,21 @@ import { DepotService } from '../services/depot.service';
 })
 export class DepotComponent implements OnInit {
 
-  somme : Depot
-  objDepot : Depot
-  constructor(private _depotService: DepotService) { }
+  constructor(private _auth : AuthService,
+    private _router : Router) { }
 
+depotSolde ={}
   ngOnInit() {
 
-
-
-    var somme = new Depot();
-    somme.montant = 500000;
-    somme.depot = 18;
-  this._depotService.deposer(this.somme)
-  .subscribe(
-    data=>
-    {
-      this.objDepot = data;
-
-    }
-  )
-
   }
-
+   
+  onDepot(){
+    //recupere et affiche les donnees dans la console
+    // console.log(this.depotSolde)
+    this._auth.onDepot(this.depotSolde)
+    .subscribe(
+      data => console.log('success !', data ),
+      error => console.error('Error', error)
+    )
+  }
 }

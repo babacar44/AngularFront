@@ -21,7 +21,7 @@ imageUrl:string="/assets/img/Avatar-Transparent-Image.png"
     this.registerUserData.imageName = file.item(0);
 
     //show image preview 
-    var reader =  new FileReader0
+    var reader =  new  FileReader();
     reader.onload = (event:any) => {
       this.imageUrl = event.target.result;
     }

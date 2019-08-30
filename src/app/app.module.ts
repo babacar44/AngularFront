@@ -18,7 +18,6 @@ import { OperationsComponent } from './operations/operations.component';
 import { CompteComponent } from './compte/compte.component';
 import { AuthGuard } from './auth.guard';
 import { NavbarComponent } from './navbar/navbar.component';
-import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     OperationsComponent,
     CompteComponent,
     NavbarComponent,
-    UploadImageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,27 @@
-<p>
-  depot works!
-</p>
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="mb-0">Depot</h3>
+      </div>
+      <div class="card-body" >
+        <form class="form" #userForm="ngForm" (ngSubmit)="onDepot()" >  
+          <div class="form-group">
+            <label for="">montant</label>
+            <input [(ngModel)]="depotSolde.montant" name="montant" type="text" class="form-control rounded-0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="">compte</label>
+            <input [(ngModel)]="depotSolde.depot" name="depot" type="text" class="form-control rounded-0" required>
+          </div>
+
+          <button  type="submit" class="btn btn-primary float-right">
+            Deposer
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
