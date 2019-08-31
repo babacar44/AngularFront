@@ -9,7 +9,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 })
 export class AuthService {
   // private _registerUrl = " http://localhost:8000/api/inscription"
-  private _depotUrl = "  http://localhost:8000/api/depot"
+  // private _depotUrl = "  http://localhost:8000/api/depot"
 
   private _loginUrl = "  http://localhost:8000/api/login"
 
@@ -21,10 +21,11 @@ export class AuthService {
   constructor(private http : HttpClient,
       private _router: Router) { }
 
-      onDepot(somdepot: any){
-        return this.http.post<any>(this._depotUrl, somdepot)
+      // onDepot(somdepot: any){
+      //   return this.http.post<any>(this._depotUrl, somdepot)
+
         
-      }
+      // }
 
   registerUser(User: { imageName: any; nomComplet?: any; propriete?: any; adresse?: any; statut?: any; email?: any; telephone?: any; password?: any; partenaire?: any; compte?: any; passwordConfirmation?: any; profil?: any; }){
     // return this.http.post<any>(this._registerUrl, user)

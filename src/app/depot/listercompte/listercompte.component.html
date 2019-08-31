@@ -1,0 +1,22 @@
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>idCompte</th>
+        <th>idPartenaire</th>
+        <th>numCompte</th>
+        <th>Solde</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let compte of comptes">
+        <td>{{compte.id}}</td>
+        <td>{{compte.partenaire.raisonSociale}}</td>
+        <td>{{compte.numCompte}}</td>
+        <td>{{compte.solde}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

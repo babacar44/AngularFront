@@ -1,1 +1,5 @@
 npm install @auth0/angular-jwt
+
+npm install ngx-toastr --save
+
+npm install @angular/animations --save

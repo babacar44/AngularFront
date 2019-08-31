@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,9 @@ import { CompteComponent } from './compte/compte.component';
 import { AuthGuard } from './auth.guard';
 import { NavbarComponent } from './navbar/navbar.component';
 
+import { AjoutdepotComponent } from './depot/ajoutdepot/ajoutdepot.component';
+import { ListercompteComponent } from './depot/listercompte/listercompte.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,12 +34,17 @@ import { NavbarComponent } from './navbar/navbar.component';
     OperationsComponent,
     CompteComponent,
     NavbarComponent,
+ 
+    AjoutdepotComponent,
+    ListercompteComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [AuthService,AuthGuard,PartenaireService,
   {

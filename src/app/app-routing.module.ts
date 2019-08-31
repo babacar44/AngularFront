@@ -45,10 +45,10 @@ const routes: Routes = [
     path: 'compte',
     component: CompteComponent
   },
-  {
-    path: 'navbar',
-    component: NavbarComponent
-  },
+  // {
+  //   path: 'navbar',
+  //   component: NavbarComponent
+  // },
 ];
 
 @NgModule({
