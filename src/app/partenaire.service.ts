@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PartenaireService {
+  [x: string]: any;
 
   private _partenaireUrl =  "http://localhost:8000";
   
@@ -19,5 +20,8 @@ export class PartenaireService {
               //  .pipe(catchError(this.errorHandler));
   }
 
+  onPartenaire(partenaire: any){
+    return this.http.post<any>(this._partenaireUrl+"/api/partenaire",partenaire)
+  }
 
 }

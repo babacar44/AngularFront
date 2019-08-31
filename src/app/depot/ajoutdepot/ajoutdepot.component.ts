@@ -27,7 +27,7 @@ depotSolde ={}
       data => {console.log('success !', data ),
       //affiche de d'ajout validé grace à toastr
       this._toastr.success('depot validé sur le compte '),
-      error => console.error('Error', error);
+        (      error: any) => console.error('Error', error);
       // this._router.navigate(['/accueil']);
 
       });

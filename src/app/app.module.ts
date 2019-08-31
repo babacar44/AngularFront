@@ -22,6 +22,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { AjoutdepotComponent } from './depot/ajoutdepot/ajoutdepot.component';
 import { ListercompteComponent } from './depot/listercompte/listercompte.component';
+import { AjouterComponent } from './partenaire/ajouter/ajouter.component';
+import { ListerComponent } from './partenaire/lister/lister.component';
+import { AddcompteComponent } from './compte/addcompte/addcompte.component';
+import { ListCompteComponent } from './compte/list-compte/list-compte.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import { ListercompteComponent } from './depot/listercompte/listercompte.compone
  
     AjoutdepotComponent,
     ListercompteComponent,
+    AjouterComponent,
+    ListerComponent,
+    AddcompteComponent,
+    ListCompteComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,32 +1,16 @@
-<div>
+<div >
   <app-navbar></app-navbar>
 </div>
 
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Ninea</th>
-        <th>Raison Sociale</th>
-        <th>Nom Complet</th>
-        <th>Telephone</th>
-        <th>Email</th>
-        <th>Adresse</th>
-        <th>Statut</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let partenaire of partenaires">
-        <td>{{partenaire.id}}</td>
-        <td>{{partenaire.ninea}}</td>
-        <td>{{partenaire.raisonSociale}}</td>
-        <td>{{partenaire.nomComplet}}</td>
-        <td>{{partenaire.telephone}}</td>
-        <td>{{partenaire.email}}</td>
-          <td>{{partenaire.adresse}}</td>
-          <td>{{partenaire.statut}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="jumbtron">
+  <h1 class="display-4 text-center">Ajout Partenaire</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-5">
+      <app-ajouter></app-ajouter>
+    </div>
+    <div class="col-md-7">
+      <app-lister></app-lister>
+    </div>
+  </div>
 </div>

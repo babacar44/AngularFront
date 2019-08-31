@@ -1,0 +1,49 @@
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="mb-0">Ajout Partenaire</h3>
+      </div>
+      <div class="card-body" >
+        <form class="form" #userForm="ngForm" (ngSubmit)="onPartenaire()" >  
+          <div class="form-group">
+            <label for="">raisonSociale</label>
+            <input [(ngModel)]="addpartener.raisonSociale" name="raisonSociale" type="text" class="form-control rounded-0" placeholder="raisonSociale" required>
+          </div>
+
+          <div class="form-group">
+            <label for="">nomComplet</label>
+            <input [(ngModel)]="addpartener.nomComplet" name="nomComplet" type="text" class="form-control rounded-0" placeholder="numcompte" required>
+          </div>
+
+
+          <div class="form-group">
+            <label for="">telephone</label>
+            <input [(ngModel)]="addpartener.telephone" name="telephone" type="tel" class="form-control rounded-0" placeholder="telephone" required>
+          </div>
+
+          <div class="form-group">
+            <label for="">email</label>
+            <input [(ngModel)]="addpartener.email" name="email" type="email" class="form-control rounded-0" placeholder="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="">adresse</label>
+            <input [(ngModel)]="addpartener.adresse" name="adresse" type="text" class="form-control rounded-0" placeholder="adresse" required>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="">statut</label>
+            <input [(ngModel)]="addpartener.statut" name="statut" type="text" class="form-control rounded-0" placeholder="statut" required>
+          </div> -->
+
+          <button  type="submit" class="btn btn-primary float-right">
+            Ajouter
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

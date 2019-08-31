@@ -8,15 +8,9 @@ import { PartenaireService } from '../partenaire.service';
 })
 export class PartenaireComponent implements OnInit {
 
-  partenaires = []
-  constructor(private _partenaireService : PartenaireService) { }
+ ngOnInit(){
 
-  ngOnInit() {
-    this. _partenaireService.getPartenaire(  )
-    .subscribe(
-      res=>this.partenaires = res,
-      err=>console.log(err),
-    )
+ }
   }
 
-}
+

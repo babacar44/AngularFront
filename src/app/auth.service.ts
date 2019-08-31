@@ -44,7 +44,7 @@ export class AuthService {
     formData.append('compte',User.compte);
     formData.append('passwordConfirmation',User.passwordConfirmation);
     formData.append('profil',User.profil);
-
+        
     return this.http
     .post(endpoint, formData);
 
