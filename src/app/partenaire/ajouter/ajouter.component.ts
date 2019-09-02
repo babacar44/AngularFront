@@ -16,27 +16,31 @@ export class AjouterComponent implements OnInit {
     private _router : Router, private _toastr : ToastrService) { }
 
   ngOnInit() {
-    this.resetForm();
+    // this.resetForm();
+    this._part.getPartenaire();
   }
 
-  resetForm(form? : NgForm){
-    form.resetForm();
-    if(form != null)
-    this._part.addpartener = {
-        raisonSociale : null,
-        nomComplet : null,
-        telephone : null,
-        email : null ,
-        adresse : null,
-    }
-  }
+  // resetForm(form? : NgForm){
+  //   form.resetForm();
+  //   if(form != null)
+  //   this._part.addpartener = {
+  //       raisonSociale : null,
+  //       nomComplet : null,
+  //       telephone : null,
+  //       email : null ,
+  //       adresse : null,
+  //   }
+  // }
   onPartenaire(){
       
     this._part.onPartenaire(this.addpartener)
     .subscribe(
       data=>{
         console.log('sucess !', data),
+
         this._toastr.success('Partenaire Bien Ajouté'),
+        this._part.getPartenaire();
+
         // this.resetForm(form),
         error => console.log('Error', error);
 

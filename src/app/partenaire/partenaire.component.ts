@@ -14,3 +14,4 @@ export class PartenaireComponent implements OnInit {
   }
 
 
+ 

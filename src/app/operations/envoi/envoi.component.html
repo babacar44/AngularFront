@@ -1,0 +1,63 @@
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="mb-0">Depot</h3>
+      </div>
+      <div class="card-body" >
+        <form class="form" #userForm="ngForm" (ngSubmit)="DoEnvoi()" >  
+          <div class="form-group">
+            <label for="">CodepostEnvoi</label>
+            <input [(ngModel)]="postEnvoi.CodeEnvoi" name="CodeEnvoi" type="text" class="form-control rounded-0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="">Montant</label>
+            <input [(ngModel)]="postEnvoi.Montant" name="Montant" type="number" class="form-control rounded-0" placeholder="Montant" required>
+          </div>
+
+            <div class="form-group">
+            <label for="">Envoyeur</label>
+            <input [(ngModel)]="postEnvoi.Envoyeur" name="Envoyeur" type="text" class="form-control rounded-0" placeholder="Envoyeur" required>
+          </div>
+
+            <div class="form-group">
+            <label for="">Destinataire</label>
+            <input [(ngModel)]="postEnvoi.Destinataire" name="Destinataire" type="text" class="form-control rounded-0" placeholder="Destinataire" required>
+          </div>
+
+            <div class="form-group">
+            <label for="">cniEnvoyeur</label>
+            <input [(ngModel)]="postEnvoi.cniEnvoyeur" name="cniEnvoyeur" type="text" class="form-control rounded-0" placeholder="cniEnvoyeur" required>
+          </div>
+
+            <div class="form-group">
+            <label for="">telEnvoyeur</label>
+            <input [(ngModel)]="postEnvoi.telEnvoyeur" name="telEnvoyeur" type="text" class="form-control rounded-0" placeholder="telEnvoyeur" required>
+          </div>
+
+            <div class="form-group">
+            <label for="">telRecepteur</label>
+            <input [(ngModel)]="postEnvoi.telRecepteur" name="telRecepteur" type="text" class="form-control rounded-0" placeholder="telRecepteur" required>
+          </div>
+
+            <div class="form-group">
+            <label for="">compte</label>
+            <input [(ngModel)]="postEnvoi.depot" name="depot" type="text" class="form-control rounded-0" placeholder="numcompte" required>
+          </div>
+
+          <button  type="submit" class="btn btn-danger float-left"
+          (click)="resetForm(userForm)" >
+            Reset
+          </button>
+
+          <button  type="submit" class="btn btn-success float-right">
+            Deposer
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

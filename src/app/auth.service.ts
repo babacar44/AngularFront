@@ -53,7 +53,9 @@ export class AuthService {
   
   login(user: any){
     return this.http.post<any>(this._loginUrl, user, {observe:'response'})
-    
+    //par defaut on recupere les donnees sous formes json 
+
+    // observe donne tte la reponse http mais ne le converti pas en json
   }
 
   // loggedIn(){
@@ -70,11 +72,16 @@ export class AuthService {
 
   }
 
+
   saveToken(jwt: string){
+    //save le token dans le localStorage notamment dans jwt 
     localStorage.setItem('token',jwt['token']);
     this.jwt=jwt['token'];
     this.parseJWT();
   }
+
+  //a partir jwt on recupere l email et les roles
+  //
   parseJWT(){
     //ici on recupere email et les roles 
     let jwtHelper = new JwtHelperService();

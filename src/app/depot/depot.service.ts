@@ -12,7 +12,7 @@ export class DepotService {
 
   private _CompteUrl =  "http://localhost:8000";
 
-  constructor(private http : HttpClient, private _router: Router) { }
+  constructor(private http : HttpClient) { }
 
 
   onDepot(somdepot: any){

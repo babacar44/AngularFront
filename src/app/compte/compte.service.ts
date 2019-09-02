@@ -11,7 +11,7 @@ export class CompteService {
 
   private _postcompteUrl =  "http://localhost:8000/api/addcompte"
 
-  private _CompteUrl =  "http://localhost:8000";
+  private _CompteUrl =  "http://localhost:8000/api/listercompte";
 
   
 postCompte(compte: {}){
@@ -19,9 +19,9 @@ postCompte(compte: {}){
     ,compte)
 }
 
-onListerCompte() :Observable<any>{
-  return this.http.get<any>(this._CompteUrl+"/api/listercompte")
+ListerCompte() :Observable<any>{
+  return this.http.get<any>(this._CompteUrl)
             //  .pipe(catchError(this.errorHandler));
 }
-
+ 
 }

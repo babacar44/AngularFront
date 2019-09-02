@@ -16,7 +16,7 @@ export class AddcompteComponent implements OnInit {
     private _router : Router, private _toastr : ToastrService) { }
 
   ngOnInit() {
-
+    this._compteservice.ListerCompte();
   }
   
   postCompte(){
@@ -24,7 +24,7 @@ export class AddcompteComponent implements OnInit {
     .subscribe(
       data => {
         console.log('success !', data),
-        this._toastr.success('depot validé sur le compte '),
+        this._toastr.success('Compte Crée'),
           (      error: any) => console.log('Error',error);
       }
     );

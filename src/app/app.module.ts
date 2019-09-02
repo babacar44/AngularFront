@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
@@ -26,6 +27,8 @@ import { AjouterComponent } from './partenaire/ajouter/ajouter.component';
 import { ListerComponent } from './partenaire/lister/lister.component';
 import { AddcompteComponent } from './compte/addcompte/addcompte.component';
 import { ListCompteComponent } from './compte/list-compte/list-compte.component';
+import { OperationsService } from './operations/operations.service';
+import { DepotService } from './depot/depot.service';
 
 @NgModule({
   declarations: [
@@ -51,10 +54,15 @@ import { ListCompteComponent } from './compte/list-compte/list-compte.component'
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    MatButtonModule,
+    MatCheckboxModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [AuthService,AuthGuard,PartenaireService,
+  exports: [MatButtonModule, 
+            MatCheckboxModule],
+
+  providers: [AuthService,AuthGuard,PartenaireService,OperationsService,DepotService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

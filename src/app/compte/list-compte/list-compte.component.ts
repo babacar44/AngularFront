@@ -12,8 +12,7 @@ export class ListCompteComponent implements OnInit {
   constructor(private _compteservice : CompteService) { }
 
   ngOnInit() {
-    this._compteservice.onListerCompte( )
-  
+    this._compteservice.ListerCompte( )
     .subscribe(
       res=>this.comptes = res,
       err=>console.log(err),
