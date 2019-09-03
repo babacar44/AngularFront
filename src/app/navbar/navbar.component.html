@@ -11,7 +11,12 @@
        
        
         <li class="nav-item">
-          <a class="nav-link" *ngIf="isSuperAdmin() || isPartener()" routerLink="/register"  routerLinkActive="active"><font style="vertical-align: inherit;">
+          <a class="nav-link" *ngIf="isSuperAdmin()" routerLink="/register"  routerLinkActive="active"><font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">Register</font></font></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="isPartener()" routerLink="/registerPartener"  routerLinkActive="active"><font style="vertical-align: inherit;">
             <font style="vertical-align: inherit;">Register</font></font></a>
         </li>
   

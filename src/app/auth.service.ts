@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { observable, Observable } from 'rxjs';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/throw';
 
 
 @Injectable({
@@ -46,22 +50,21 @@ export class AuthService {
     formData.append('profil',User.profil);
         
     return this.http
-    .post(endpoint, formData);
+    .post(endpoint, formData).map((res) => res).catch(this.handleError);
 
   }
 
   
   login(user: any){
     return this.http.post<any>(this._loginUrl, user, {observe:'response'})
+    .map((res) => res).catch(this.handleError)
+    
     //par defaut on recupere les donnees sous formes json 
 
     // observe donne tte la reponse http mais ne le converti pas en json
   }
 
-  // loggedIn(){
-  //   return !!localStorage.getItem('token')
-    
-  // }
+
 
   logoutUser(){
     localStorage.removeItem('token')
@@ -130,5 +133,13 @@ export class AuthService {
   loadToken(){;
     this.jwt=localStorage.getItem('token');
     this.parseJWT();
+  }
+
+  //retourner les erreurs du back 
+
+  handleError(error : Response){
+    return Observable.throw(error || 'Server Error');
+    
+
   }
 }

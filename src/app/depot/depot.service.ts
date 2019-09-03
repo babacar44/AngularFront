@@ -1,7 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from '../auth.service';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/throw';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +15,13 @@ export class DepotService {
 
   private _CompteUrl =  "http://localhost:8000";
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private _injector : Injector) { }
 
+ authentication = this._injector.get(AuthService);
 
-  onDepot(somdepot: any){
-    return this.http.post<any>(this._depotUrl, somdepot)
+  onDepot(somdepot: {}){
+    return this.http.post(this._depotUrl, somdepot)
+    .map((res) => res).catch(this.authentication.handleError)
     
     
   }
@@ -25,6 +30,7 @@ export class DepotService {
     return this.http.get<any>(this._CompteUrl+"/api/listercompte")
               //  .pipe(catchError(this.errorHandler));
   }
+
 
   
   

@@ -1,12 +1,12 @@
-
+<!-- 
 <div class="container">
   <table class="table">
     <thead>
       <tr>
         <th>idCompte</th>
-        <th>Ninea Partenaire</th>
+        <th>Ninea Partenaire</th> -->
         <!-- <th>Raison Sociale</th> -->
-        <th>numCompte</th>
+        <!-- <th>numCompte</th>
         <th>Solde</th>
 
       </tr>
@@ -14,11 +14,55 @@
     <tbody>
       <tr *ngFor="let compte of comptes">
         <td>{{compte.id}}</td>
-        <td>{{compte.partenaire.ninea}}</td>
+        <td>{{compte.partenaire.ninea}}</td> -->
         <!-- <td>{{compte.partenaire.raisonSociale}}</td> -->
-        <td>{{compte.numCompte}}</td>
+        <!-- <td>{{compte.numCompte}}</td>
         <td>{{compte.solde}}</td>
       </tr>
     </tbody>
   </table>
+</div> -->
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> idCompte </th>
+      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+    </ng-container>
+
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="raisonSociale">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> raisonSociale </th>
+      <td mat-cell *matCellDef="let row"> {{row.partenaire.raisonSociale}} </td>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="numCompte">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> numCompte </th>
+      <td mat-cell *matCellDef="let row" > {{row.numCompte}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="solde">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Solde </th>
+      <td mat-cell *matCellDef="let row"> {{row.solde}} CFA</td>
+    </ng-container>
+
+   
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>

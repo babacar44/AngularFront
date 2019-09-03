@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Depot } from '../Classes/depot';
-import { DepotService } from '../services/depot.service';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 

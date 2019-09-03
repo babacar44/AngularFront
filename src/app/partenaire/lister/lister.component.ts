@@ -1,22 +1,53 @@
-import { Component, OnInit } from '@angular/core';
 import { PartenaireService } from '../../partenaire.service';
-
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import { Ipartenaire } from '../partenaire';
+  
 @Component({
   selector: 'app-lister',
   templateUrl: './lister.component.html',
   styleUrls: ['./lister.component.css']
 })
 export class ListerComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'ninea', 'raisonSociale', 'nomComplet','telephone','email','adresse','statut']
+  dataSource: MatTableDataSource<Ipartenaire>;
 
-  partenaires = []
-  constructor(private _partenaireService : PartenaireService) { }
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+
+
+
+  partenaires :  Ipartenaire[];
+
+  constructor(private _partenaireService : PartenaireService) { 
+  }
+
+  loadData(data){
+       // Assign the data to the data source for the table to render
+       this.dataSource = new MatTableDataSource(data);
+       this.dataSource.paginator = this.paginator;
+       this.dataSource.sort = this.sort;
+  }
 
   ngOnInit() {
     this. _partenaireService.getPartenaire(  )
     .subscribe(
-      res=>this.partenaires = res,
+      res=>{this.partenaires = res,
+      this.loadData(this.partenaires);
+      },
       err=>console.log(err),
+
     )
+  }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 }

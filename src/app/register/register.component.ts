@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ imageUrl:string="/assets/img/Avatar-Transparent-Image.png"
   registerUserData = {imageName : File=null}
   
   constructor(private _auth : AuthService,
-      private _router : Router) { }
+      private _router : Router, private _toastr : ToastrService) { }
 
   ngOnInit() {
   }
@@ -36,6 +37,8 @@ imageUrl:string="/assets/img/Avatar-Transparent-Image.png"
         console.log(res)
       // localStorage.setItem('token', res.token)
       // this._router.navigate(['/partenaire'])
+      this._toastr.success('Partenaire Bien Ajouté')
+
       },
       (      err: any)=>console.log(err),
 

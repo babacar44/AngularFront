@@ -3,6 +3,7 @@ import { AuthService } from '../../auth.service';
 import { Router } from '@angular/router';
 import { DepotService } from '../depot.service';
 import { ToastrService } from 'ngx-toastr';
+import { error } from 'util';
 
 @Component({
   selector: 'app-ajoutdepot',
@@ -14,9 +15,11 @@ export class AjoutdepotComponent implements OnInit {
   constructor(private _dep : DepotService,
     private _router : Router, private _toastr : ToastrService) { }
 
+errorMessage = [];
 depotSolde ={}
   ngOnInit() {
-
+  this._dep.onListerCompte();
+  
   }
    
   onDepot(){
@@ -27,9 +30,15 @@ depotSolde ={}
       data => {console.log('success !', data ),
       //affiche de d'ajout validé grace à toastr
       this._toastr.success('depot validé sur le compte '),
-        (      error: any) => console.error('Error', error);
-      // this._router.navigate(['/accueil']);
+      this._dep.onListerCompte();
 
-      });
+        // (      error) => console.error('Error', error);
+       this._router.navigate(['/depot']);
+        // this.errorMessage = data;
+        console.log(data);
+      },
+      error=>{this.errorMessage = error.error.detail,
+      console.log(this.errorMessage)}
+      );
   }
 }

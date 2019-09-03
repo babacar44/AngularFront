@@ -11,6 +11,16 @@
             <input [(ngModel)]="depotSolde.montant" name="montant" type="text" class="form-control rounded-0" required>
           </div>
 
+        <!-- error -->
+          
+          <div class="form-group">
+
+            <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}
+
+            </div>
+          </div>
+
+
           <div class="form-group">
             <label for="">compte</label>
             <input [(ngModel)]="depotSolde.depot" name="depot" type="text" class="form-control rounded-0" placeholder="numcompte" required>

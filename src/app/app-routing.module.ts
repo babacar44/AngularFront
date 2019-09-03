@@ -9,6 +9,7 @@ import { DepotComponent } from './depot/depot.component';
 import { OperationsComponent } from './operations/operations.component';
 import { CompteComponent } from './compte/compte.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RegisterPartenerComponent } from './navbar/register-partener/register-partener.component';
 
 const routes: Routes = [
   { 
@@ -20,6 +21,10 @@ const routes: Routes = [
     path: 'partenaire',
     component: PartenaireComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'registerPartener',
+    component: RegisterPartenerComponent,
   },
   {
     path: 'login',

@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +19,7 @@ import { OperationsComponent } from './operations/operations.component';
 import { CompteComponent } from './compte/compte.component';
 import { AuthGuard } from './auth.guard';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatOptionModule, MatSelectModule, MatToolbarModule, MatExpansionModule } from '@angular/material';
 import { AjoutdepotComponent } from './depot/ajoutdepot/ajoutdepot.component';
 import { ListercompteComponent } from './depot/listercompte/listercompte.component';
 import { AjouterComponent } from './partenaire/ajouter/ajouter.component';
@@ -29,6 +28,7 @@ import { AddcompteComponent } from './compte/addcompte/addcompte.component';
 import { ListCompteComponent } from './compte/list-compte/list-compte.component';
 import { OperationsService } from './operations/operations.service';
 import { DepotService } from './depot/depot.service';
+import { RegisterPartenerComponent } from './navbar/register-partener/register-partener.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,7 @@ import { DepotService } from './depot/depot.service';
     ListerComponent,
     AddcompteComponent,
     ListCompteComponent,
+    RegisterPartenerComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,11 +58,22 @@ import { DepotService } from './depot/depot.service';
     MatButtonModule,
     MatCheckboxModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatExpansionModule,
+  
   ],
-  exports: [MatButtonModule, 
-            MatCheckboxModule],
-
+    
   providers: [AuthService,AuthGuard,PartenaireService,OperationsService,DepotService,
   {
     provide: HTTP_INTERCEPTORS,

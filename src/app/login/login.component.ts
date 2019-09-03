@@ -13,11 +13,12 @@ export class LoginComponent implements OnInit {
   constructor(private _auth : AuthService,
       private _router : Router) { }
 
+      errorMessage = [];    
   ngOnInit() {
 
   }
   
-  loginUser(user: any){
+  loginUser(error){
     this._auth.login(this.loginUserData)
     .subscribe(
       res=>{
@@ -26,6 +27,10 @@ export class LoginComponent implements OnInit {
         this._auth.saveToken(jwt);
         this._router.navigate(['/accueil']);
 
+        this.errorMessage = error.text
+          
+          console.log(this.errorMessage)}
+          );
       //   if(res.token){
       //   console.log(res)
       //   localStorage.setItem('token', res.token)
@@ -34,9 +39,8 @@ export class LoginComponent implements OnInit {
       // }
   
 
-      }, 
-      err=>console.log(err),
-    )
+      
+  
   }
 
   isSuperAdmin(){

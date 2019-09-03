@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private _auth: AuthService){ }
   
   ngOnInit(){
-    
+    this._auth.loadToken();
   }
   isSuperAdmin(){
     return this._auth.isSuperAdmin()

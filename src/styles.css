@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 .form-group>input{
     font-weight: bolder;
 }
@@ -29,4 +31,16 @@ div.validation-error{
     font-size: 80%;
     color: #dc3545;
 }
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
