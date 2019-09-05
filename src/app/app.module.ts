@@ -29,6 +29,10 @@ import { ListCompteComponent } from './compte/list-compte/list-compte.component'
 import { OperationsService } from './operations/operations.service';
 import { DepotService } from './depot/depot.service';
 import { RegisterPartenerComponent } from './navbar/register-partener/register-partener.component';
+import { EnvoiComponent } from './operations/envoi/envoi.component';
+import { EnvoiListComponent } from './operations/envoi-list/envoi-list.component';
+import { RetraitComponent } from './operations/retrait/retrait.component';
+
 
 @NgModule({
   declarations: [
@@ -42,13 +46,18 @@ import { RegisterPartenerComponent } from './navbar/register-partener/register-p
     CompteComponent,
     NavbarComponent,
  
-    AjoutdepotComponent,
+    AjoutdepotComponent, 
     ListercompteComponent,
     AjouterComponent,
     ListerComponent,
     AddcompteComponent,
     ListCompteComponent,
     RegisterPartenerComponent,
+    EnvoiComponent,
+    EnvoiListComponent,
+    RetraitComponent,
+    
+
   ],
   imports: [
     BrowserModule,

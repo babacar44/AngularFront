@@ -57,7 +57,7 @@ export class AuthService {
   
   login(user: any){
     return this.http.post<any>(this._loginUrl, user, {observe:'response'})
-    .map((res) => res).catch(this.handleError)
+    // .map((res) => res).catch(this.handleError)
     
     //par defaut on recupere les donnees sous formes json 
 

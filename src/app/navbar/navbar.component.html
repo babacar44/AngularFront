@@ -10,46 +10,51 @@
       <ul class="navbar-nav mr-auto"  >
        
        
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="isSuperAdmin()" routerLink="/register"  routerLinkActive="active"><font style="vertical-align: inherit;">
-            <font style="vertical-align: inherit;">Register</font></font></a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="isPartener()" routerLink="/registerPartener"  routerLinkActive="active"><font style="vertical-align: inherit;">
-            <font style="vertical-align: inherit;">Register</font></font></a>
-        </li>
-  
-        <li class="nav-item dropdown">
-          <a class="nav-link" *ngIf="isSuperAdmin() || isAdminWari()" routerLink="/partenaire"  routerLinkActive="active"><font style="vertical-align: inherit;">
-            <font style="vertical-align: inherit;">Partenaire</font></font></a>
-        </li>
-  
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="isSuperAdmin()" routerLink="/compte"  routerLinkActive="active"><font style="vertical-align: inherit;">
-            <font style="vertical-align: inherit;">Compte</font></font></a>
-        </li>
-  
-  
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="isCaissier()" routerLink="/depot"  routerLinkActive="active"><font style="vertical-align: inherit;">
-            <font style="vertical-align: inherit;">Depot</font></font></a>
-        </li>
-  
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="isUser() || isAdminPartener() || isPartener()" routerLink="/operations"  routerLinkActive="active"><font style="vertical-align: inherit;">
-            <font style="vertical-align: inherit;">Operations</font></font></a>
-        </li>
-  
-  
+        
       </ul>
+
+
       </div>
   
       <div class="float-md-right">
       <ul class="navbar-nav">
           <!-- <a class="nav-link" *ngIf="!isAuthenticated()"  routerLink="/login"  routerLinkActive="active"><font style="vertical-align: inherit;">
             <font style="vertical-align: inherit;">Login</font></font></a> -->
-  
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="isSuperAdmin()" routerLink="/register"  routerLinkActive="active"><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Register</font></font></a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="isPartener()" routerLink="/registerPartener"  routerLinkActive="active"><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Register</font></font></a>
+            </li>
+      
+            <li class="nav-item dropdown">
+              <a class="nav-link" *ngIf="isSuperAdmin() || isAdminWari()" routerLink="/partenaire"  routerLinkActive="active"><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Partenaire</font></font></a>
+            </li>
+      
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="isSuperAdmin()" routerLink="/compte"  routerLinkActive="active"><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Compte</font></font></a>
+            </li>
+      
+      
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="isCaissier()" routerLink="/depot"  routerLinkActive="active"><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Depot</font></font></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="isUser() || isAdminPartener() || isPartener()" routerLink="/envoi"  routerLinkActive="active"><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Envoi</font></font></a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="isUser() || isAdminPartener() || isPartener()" routerLink="/retrait"  routerLinkActive="active"><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Retrait</font></font></a>
+            </li>
           <a class="nav-link " style="cursor:pointer"  *ngIf="isAuthenticated()" (click)="_auth.logoutUser()">
             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Deconnexion</font></font></a>
       </ul>

@@ -1,14 +1,19 @@
-<div class="row pt-5">
+<div >
+  <app-navbar></app-navbar>
+</div>
+<router-outlet></router-outlet>
+
+<!-- <div class="row pt-5">
   <div class="col-md-6 mx-auto">
     <div class="card rounded-0">
       <div class="card-header">
-        <h3 class="mb-0">Depot</h3>
+        <h3 class="mb-0">compte</h3>
       </div>
       <div class="card-body" >
         <form class="form" #userForm="ngForm" (ngSubmit)="DoEnvoi()" >  
           <div class="form-group">
             <label for="">CodepostEnvoi</label>
-            <input [(ngModel)]="postEnvoi.CodeEnvoi" name="CodeEnvoi" type="text" class="form-control rounded-0" required>
+            <input [(ngModel)]="postEnvoi.CodeEnvoi" name="CodeEnvoi"  class="form-control rounded-0" required>
           </div>
 
           <div class="form-group">
@@ -18,32 +23,32 @@
 
             <div class="form-group">
             <label for="">Envoyeur</label>
-            <input [(ngModel)]="postEnvoi.Envoyeur" name="Envoyeur" type="text" class="form-control rounded-0" placeholder="Envoyeur" required>
+            <input [(ngModel)]="postEnvoi.Envoyeur" name="Envoyeur"  class="form-control rounded-0" placeholder="Envoyeur" required>
           </div>
 
             <div class="form-group">
             <label for="">Destinataire</label>
-            <input [(ngModel)]="postEnvoi.Destinataire" name="Destinataire" type="text" class="form-control rounded-0" placeholder="Destinataire" required>
+            <input [(ngModel)]="postEnvoi.Destinataire" name="Destinataire"  class="form-control rounded-0" placeholder="Destinataire" required>
           </div>
 
             <div class="form-group">
             <label for="">cniEnvoyeur</label>
-            <input [(ngModel)]="postEnvoi.cniEnvoyeur" name="cniEnvoyeur" type="text" class="form-control rounded-0" placeholder="cniEnvoyeur" required>
+            <input [(ngModel)]="postEnvoi.cniEnvoyeur" name="cniEnvoyeur"  class="form-control rounded-0" placeholder="cniEnvoyeur" required>
           </div>
 
             <div class="form-group">
             <label for="">telEnvoyeur</label>
-            <input [(ngModel)]="postEnvoi.telEnvoyeur" name="telEnvoyeur" type="text" class="form-control rounded-0" placeholder="telEnvoyeur" required>
+            <input [(ngModel)]="postEnvoi.telEnvoyeur" name="telEnvoyeur"  class="form-control rounded-0" placeholder="telEnvoyeur" required>
           </div>
 
             <div class="form-group">
             <label for="">telRecepteur</label>
-            <input [(ngModel)]="postEnvoi.telRecepteur" name="telRecepteur" type="text" class="form-control rounded-0" placeholder="telRecepteur" required>
+            <input [(ngModel)]="postEnvoi.telRecepteur" name="telRecepteur"  class="form-control rounded-0" placeholder="telRecepteur" required>
           </div>
 
             <div class="form-group">
             <label for="">compte</label>
-            <input [(ngModel)]="postEnvoi.depot" name="depot" type="text" class="form-control rounded-0" placeholder="numcompte" required>
+            <input [(ngModel)]="postEnvoi.compte" name="compte"  class="form-control rounded-0" placeholder="numcompte" required>
           </div>
 
           <button  type="submit" class="btn btn-danger float-left"
@@ -58,10 +63,10 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- table -->
 
-<table class="table table-bordeless">
+<!-- <table class="table table-bordeless">
   <thead class="thead-light">
     <th>CodeEnvoi</th>
     <th>Envoyeur</th>
@@ -96,4 +101,68 @@
 <div class="form-group">
   <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
   <a class="btn btn-outline-dark ml-1" routerLink="/orders"><i class="fa fa-table"></i> View Orders</a>
+</div> -->
+
+
+<div class="row pt-5">
+<form class="form" #userForm="ngForm" (ngSubmit)="faireEnvoi(userForm)"  style="margin: 0 auto">  
+
+<div class="row">
+  <!-- <div class="col-md-6 form-group">
+    <input  placeholder="CodeEnvoi" class="form-control"  name="CodeEnvoi" [(ngModel)]="postEnvoi.CodeEnvoi"> 
+  </div> -->
+  <div class="col-md-6 form-group">
+    <input  placeholder="Destinataire" class="form-control" [(ngModel)]="postEnvoi.Destinataire" name="Destinataire">
+  </div>
+
+  <div class="col-md-6 form-group">
+      <input  placeholder="Envoyeur" class="form-control" name="Envoyeur" [(ngModel)]="postEnvoi.Envoyeur" >
+  </div>
+</div>
+
+<!-- <div class="row">
+
+</div> -->
+
+<div class="row">
+    
+    <div class="col-md-12  form-group">
+      <input placeholder="Montant" class="form-control" [(ngModel)]="postEnvoi.Montant" name="Montant">
+    </div>
+    <!-- <div class="col-md-6 form-group">
+        <input  placeholder="compte" class="form-control" [(ngModel)]="postEnvoi.compte" name="compte">
+    </div> -->
+  </div>
+
+  <div class="row">
+      <div class="col-md-12 form-group">
+        <input placeholder="cniEnvoyeur" class="form-control" [(ngModel)]="postEnvoi.cniEnvoyeur" name="cniEnvoyeur">
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-6 form-group">
+        <input  placeholder="telEnvoyeur" class="form-control" [(ngModel)]="postEnvoi.telEnvoyeur" name="telEnvoyeur">
+      </div>
+    
+      <div class="col-md-6 form-group">
+          <input  placeholder="telRecepteur" class="form-control" [(ngModel)]="postEnvoi.telRecepteur" name="telRecepteur">
+      </div>
+  </div>
+
+    <div class="row">
+      <div class="col-md-8">
+      <button class="btn btn-success btn-block btn-lg" ><i class="fas fa-save"></i>
+        Envoyer
+      </button>
+    </div>
+
+    <div class="col-md-4">
+        <button class="btn btn-danger btn-block btn-lg" (click)="resetUserForm(userForm)" ><i class="fas fa-retweet"></i>
+          Reset
+        </button>
+      </div>
+    </div>
+</form>    
+
 </div>
