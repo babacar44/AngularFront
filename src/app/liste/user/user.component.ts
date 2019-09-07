@@ -13,7 +13,7 @@ import { AuthService } from '../../auth.service';
 })
 export class UserComponent implements OnInit {
   
-  displayedColumns: string[] = ['email', 'nomComplet', 'propriete', 'telephone','adresse','roles','status','boutton']
+  displayedColumns: string[] = ['id' ,'email', 'nomComplet', 'propriete', 'telephone','roles','statut','boutton']
   dataSource: MatTableDataSource<Iuser>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -46,6 +46,16 @@ export class UserComponent implements OnInit {
         this.dataSource.paginator.firstPage();
       }
 
+  }
+  updateStatus(id:number){
+      if(window.confirm('Are you sure  you want to update ?')){
+        this._userService.updateStatus(id)
+        .subscribe(
+          data=>{
+            this.ngOnInit();
+          }
+        )
+      }
   }
   isAdminPartener(){
     return this._auth.isAdminPartener()

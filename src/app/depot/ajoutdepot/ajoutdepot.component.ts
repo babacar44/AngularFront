@@ -34,6 +34,7 @@ depotSolde ={}
 
         // (      error) => console.error('Error', error);
        this._router.navigate(['/depot']);
+       
         // this.errorMessage = data;
         console.log(data);
       },

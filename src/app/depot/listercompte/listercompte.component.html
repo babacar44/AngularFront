@@ -37,6 +37,12 @@
     </ng-container>
 
 
+    <!-- Name Column -->
+    <ng-container matColumnDef="ninea">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ninea </th>
+      <td mat-cell *matCellDef="let row "> {{row.partenaire.ninea}} </td>
+    </ng-container>
+
 
     <!-- Name Column -->
     <ng-container matColumnDef="raisonSociale">

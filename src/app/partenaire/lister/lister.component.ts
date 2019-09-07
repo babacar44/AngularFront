@@ -56,7 +56,8 @@ export class ListerComponent implements OnInit {
       })
     }
 }
-  applyFilter(filterValue: string) {
+
+applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {

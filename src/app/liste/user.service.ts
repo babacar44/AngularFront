@@ -11,14 +11,18 @@ export class UserService {
   constructor(private http : HttpClient) { }
 
   private _urlListUser = " http://localhost:8000/api/listerUser";
+  private _urlstatus = " http://localhost:8000/api/listerUser/";
 
 
 getUserPartener() : Observable <any>{
  return this.http.get<any>(this._urlListUser);
 }
 
-isAdminParte(){
-  
+updateStatus(id) : Observable<any>{
+  return this.http.get<any>(this._urlstatus + id)
+
 }
+
+
 
 }

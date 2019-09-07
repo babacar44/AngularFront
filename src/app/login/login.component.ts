@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  errorMessage ;
+
   loginUserData ={}
   constructor(private _auth : AuthService,
       private _router : Router) { }
@@ -22,21 +24,16 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res=>{
         let jwt = res.body;
-        console.log(jwt);
+        console.log(jwt.message);
+        this.errorMessage = jwt.message
         this._auth.saveToken(jwt);
         this._router.navigate(['/accueil']);
 
-        //   if(res.token){
-        //   console.log(res)
-        //   localStorage.setItem('token', res.token)
-        //   this._router.navigate(['/accueil'])
-  
-        // }
-    
-
       }, 
-      err=>console.log(err),
-    )
+      error=>{this.errorMessage = error
+       console.log(this.errorMessage)
+        }
+    );
   }
 
   isSuperAdmin(){
