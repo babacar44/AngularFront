@@ -32,6 +32,7 @@ import { RegisterPartenerComponent } from './navbar/register-partener/register-p
 import { EnvoiComponent } from './operations/envoi/envoi.component';
 import { EnvoiListComponent } from './operations/envoi-list/envoi-list.component';
 import { RetraitComponent } from './operations/retrait/retrait.component';
+import { UserComponent } from './liste/user/user.component';
 
 
 @NgModule({
@@ -56,6 +57,8 @@ import { RetraitComponent } from './operations/retrait/retrait.component';
     EnvoiComponent,
     EnvoiListComponent,
     RetraitComponent,
+    UserComponent,
+    
     
 
   ],

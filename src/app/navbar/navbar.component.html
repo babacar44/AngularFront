@@ -39,7 +39,12 @@
               <a class="nav-link" *ngIf="isSuperAdmin()" routerLink="/compte"  routerLinkActive="active"><font style="vertical-align: inherit;">
                 <font style="vertical-align: inherit;">Compte</font></font></a>
             </li>
-      
+
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="isPartener()" routerLink="/listUserPartener"  routerLinkActive="active"><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Lister</font></font></a>
+            </li>
+            
       
             <li class="nav-item">
               <a class="nav-link" *ngIf="isCaissier()" routerLink="/depot"  routerLinkActive="active"><font style="vertical-align: inherit;">

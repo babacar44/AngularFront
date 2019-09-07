@@ -1,40 +1,47 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Ienvoi } from './envoi';
-import { Iretrait } from './retrait';
+  import { Injectable, Injector } from '@angular/core';
+  import { HttpClient } from '@angular/common/http';
 
-
-
-@Injectable({
-  providedIn: 'root'
-})
-export class OperationsService {
-
-  private _envoiUrl = "http://localhost:8000/api/envoi";
-  private _retrait = " http://localhost:8000/api/codeFinder";
+  import  'rxjs/add/observable/throw';
+  import { catchError } from 'rxjs/operators';
+import { AuthService } from '../auth.service';
   
-  constructor(private http : HttpClient) { }
-
   
-
-  faireEnvoi(envoi){
-    return this.http.post<any>(this._envoiUrl, envoi)
-
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class OperationsService {
+  
+    private _envoiUrl = "http://localhost:8000/api/envoi";
+    private _retrait = " http://localhost:8000/api/codeFinder";
+    private _okRetrait =" http://localhost:8000/api/retrait";
     
+    constructor(private http : HttpClient, private _injector : Injector) { }
+  
     
-}
+    authentication = this._injector.get(AuthService);
+    faireEnvoi(envoi:any){
 
-  getRetrait(codeEnvoi : Iretrait){  
-    return this.http.post<any>(this._retrait,codeEnvoi)
+          console.log(envoi);
+
+      return this.http.post<any>(this._envoiUrl, envoi)
+  
+      
+      
   }
-  isVerify(): Observable <any>{
-    return this.http.get<any>(this._retrait)
+  
+    getRetrait(data){  
+      return this.http.post<any>(this._retrait,data)
+    }
+    
+    faireRetrait(data){
 
+      return this.http.post<any>(this._okRetrait,data)
+      .map((res) => res).catch(this.authentication.handleError)
+    
+    }
+  
+  // getAllEnvoi() : Observable<Ienvoi[]>{
+  //   // return this.http.get<Ienvoi[]>();
+  // }
+  
   }
-
-// getAllEnvoi() : Observable<Ienvoi[]>{
-//   // return this.http.get<Ienvoi[]>();
-// }
-
-}

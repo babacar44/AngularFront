@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterPartenerComponent } from './navbar/register-partener/register-partener.component';
 import { EnvoiComponent } from './operations/envoi/envoi.component';
 import { RetraitComponent } from './operations/retrait/retrait.component';
+import { UserComponent } from './liste/user/user.component';
 
 const routes: Routes = [
   { 
@@ -63,10 +64,14 @@ const routes: Routes = [
     path: 'compte',
     component: CompteComponent
   },
-  // {
-  //   path: 'navbar',
-  //   component: NavbarComponent
-  // },
+  {
+    path: 'listUserPartener',
+    component: UserComponent
+  },
+ 
+
+
+  
 ];
 
 @NgModule({

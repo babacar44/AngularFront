@@ -17,6 +17,7 @@ export class DepotService {
 
   constructor(private http : HttpClient, private _injector : Injector) { }
 
+  //injection du service
  authentication = this._injector.get(AuthService);
 
   onDepot(somdepot: {}){

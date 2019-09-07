@@ -4,6 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Ipartenaire } from '../partenaire';
+import { Router, ActivatedRoute } from '@angular/router';
   
 @Component({
   selector: 'app-lister',
@@ -11,7 +12,7 @@ import { Ipartenaire } from '../partenaire';
   styleUrls: ['./lister.component.css']
 })
 export class ListerComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'ninea', 'raisonSociale', 'nomComplet','telephone','email','adresse','statut']
+  displayedColumns: string[] = ['id', 'ninea', 'raisonSociale', 'nomComplet','telephone','email','adresse','statut','boutton']
   dataSource: MatTableDataSource<Ipartenaire>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -21,8 +22,12 @@ export class ListerComponent implements OnInit {
 
 
   partenaires :  Ipartenaire[];
+  id : any;
 
-  constructor(private _partenaireService : PartenaireService) { 
+  constructor(private _partenaireService : PartenaireService,
+    private actRoute : ActivatedRoute,
+
+    private _router : Router) { 
   }
 
   loadData(data){
@@ -42,6 +47,15 @@ export class ListerComponent implements OnInit {
 
     )
   }
+
+  updatePartenaire(id:number){
+    if(window.confirm('Are you sure  you want to update ?')){
+      this._partenaireService.updatePartenaire(id)
+      .subscribe(data =>{
+        this.ngOnInit();
+      })
+    }
+}
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 

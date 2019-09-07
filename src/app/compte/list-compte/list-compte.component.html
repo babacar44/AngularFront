@@ -4,8 +4,8 @@
     <thead>
       <tr>
         <th>idCompte</th>
-        <!-- <th>Ninea Partenaire</th>
-        <th>Raison Sociale</th> -->
+         <th>Ninea Partenaire</th>
+        <th>Raison Sociale</th>
         <th>numCompte</th>
         <th>Solde</th>
 
@@ -14,8 +14,8 @@
     <tbody>
       <tr *ngFor="let compte of comptes">
         <td>{{compte.id}}</td>
-        <!-- <td>{{compte.partenaire.ninea}}</td>
-        <td>{{compte.partenaire.raisonSociale}}</td> -->
+         <td>{{compte.partenaire}}</td>
+        <td>{{compte.partenaire.raison_sociale}}</td>
         <td>{{compte.numCompte}}</td>
         <td>{{compte.solde}}</td>
       </tr>
