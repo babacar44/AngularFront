@@ -1,38 +1,84 @@
-<div class="row pt-5">
+
+
+<!-- <div class="row pt-5">
   <div class="col-md-6 mx-auto">
     <div class="card rounded-0">
       <div class="card-header">
         <h3 class="mb-0">Depot</h3>
-      </div>
-      <div class="card-body" >
-        <form class="form" #userForm="ngForm" (ngSubmit)="onDepot()" >  
-          <div class="form-group">
-            <label for="">montant</label>
-            <input [(ngModel)]="depotSolde.montant" name="montant" type="text" class="form-control rounded-0" required>
+      </div> -->
+     
+      <form class="form-inline md-form mr-auto mb-4"  #depotForm="ngForm" >
+        <input [(ngModel)]="depotSolde.numCompte" name="numCompte" class="form-control mr-sm-2" type="text" placeholder="numCompte" required>
+        <!-- <div class="form-group">
+      
+          <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}
+      
           </div>
+        </div>   -->
+        <button (click)="rechercherCompte(depotSolde.numCompte)"  class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Search</button>
+      </form> 
 
-        <!-- error -->
-          
-          <div class="form-group">
-
-            <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}
-
-            </div>
-          </div>
-
-
-          <div class="form-group">
-            <label for="">compte</label>
-            <input [(ngModel)]="depotSolde.depot" name="depot" type="text" class="form-control rounded-0" placeholder="numcompte" required>
-          </div>
-
-          <button  type="submit" class="btn btn-primary float-right">
-            Deposer
-          </button>
-        </form>
-      </div>
+      <div class="jumbtron">
+  
+        <div class="row" *ngIf="afficher" >
+          <!-- ................... -->
+          <div class="col-md-7">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">id</th>
+                      <th scope="col">numCompte</th>
+                      <th scope="col">solde</th>
+                      <th scope="col">raison sociale</th>
+                      <!-- <th scope="col">telRecepteur</th>
+                      <th scope="col">ComRetrait</th>
+       -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr >
+                      <td>{{depotSolde.id}}</td>
+                      <td>{{depotSolde.numCompte}}</td>
+                      <td>{{depotSolde.solde}} CFA</td>
+                      <td>{{depotSolde.partenaire.raisonSociale}}</td>
+                      <!-- <td>{{depotSolde.ninea}}</td> -->
+              
+                    </tr>
+                   
+                  </tbody>
+                </table>
+      
+      <!-- ................ -->
+      <!-- ********************** form deposer *************** -->
     </div>
-  </div>
-</div>
-
-
+    <!-- .................. -->
+        <div class="col-md-5">
+            <div class="row pt-5">
+                <div class="col-md-6 mx-auto">
+                  <div class="card rounded-0">
+                    <div class="card-header">
+                      <h3 class="mb-0">Faire un Depot</h3>
+                    </div>
+                    <div class="card-body" >
+                      <form class="form" #validerForm="ngForm">  
+                        <div class="form-group">
+                          <label for="">Numero Compte</label>
+                          <input  [(ngModel)]="infoDepot.numCompte" name="numCompte" type="text" class="form-control rounded-0" placeholder="numCompte" required>
+                        </div>
+              
+                        <div class="form-group">
+                          <label for="">Montant</label>
+                          <input [(ngModel)]="infoDepot.montant" name="montant" type="text" class="form-control rounded-0" placeholder="montant" required>
+                        </div>
+    
+              
+                        <button (click)="faireDepot(infoDepot)" type="submit" class="btn btn-success float-right">
+                          Deposer
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+       </div>
+    

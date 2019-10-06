@@ -17,15 +17,15 @@ import { AuthService } from '../auth.service';
     
     constructor(private http : HttpClient, private _injector : Injector) { }
   
+
     
     authentication = this._injector.get(AuthService);
+
     faireEnvoi(envoi:any){
-
           console.log(envoi);
-
       return this.http.post<any>(this._envoiUrl, envoi)
-  
-      
+          .map((res) => res).catch(this.authentication.handleError)
+
       
   }
   
@@ -34,8 +34,13 @@ import { AuthService } from '../auth.service';
     }
     
     faireRetrait(data){
-
-      return this.http.post<any>(this._okRetrait,data)
+  console.log(data)
+  const dat={
+    CodeEnvoi: data.CodeEnvoi,
+    cniRecepteur: data.cniRecepteur
+  }
+  console.log(dat)
+      return this.http.post<any>(this._okRetrait,dat)
       .map((res) => res).catch(this.authentication.handleError)
     
     }

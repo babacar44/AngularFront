@@ -13,7 +13,38 @@
   <button (click)="onRetrait(codeEnvoiArray.CodeEnvoi)"  class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Search</button>
 </form> 
 
- 
+<div class="jumbtron">
+  
+  <div class="row" *ngIf="afficher" >
+    <!-- ................... -->
+    <div class="col-md-7">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">CodeEnvoi</th>
+                <th scope="col">Envoyeur</th>
+                <th scope="col">Montant</th>
+                <th scope="col">Destinataire</th>
+                <th scope="col">telRecepteur</th>
+                <th scope="col">ComRetrait</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr >
+                <td>{{codeEnvoiArray.CodeEnvoi}}</td>
+                <td>{{codeEnvoiArray.Envoyeur}}</td>
+                <td>{{codeEnvoiArray.Montant}} CFA</td>
+                <td>{{codeEnvoiArray.Destinataire}}</td>
+                <td>{{codeEnvoiArray.telRecepteur}}</td>
+                <td>{{codeEnvoiArray.comRetrait}} CFA</td>
+                
+              </tr>
+             
+            </tbody>
+          </table>
+
+    </div>
 <!-- .................. -->
     <div class="col-md-5">
         <div class="row pt-5">
@@ -35,7 +66,7 @@
                     </div>
 
           
-                    <button (click)="DoRetrait()" type="submit" class="btn btn-success float-right">
+                    <button (click)="DoRetrait(infoRetrait)" type="submit" class="btn btn-success float-right">
                       Ajouter
                     </button>
                   </form>
@@ -43,6 +74,4 @@
               </div>
             </div>
           </div>
-          
-                                                                                                                iv>
    </div>

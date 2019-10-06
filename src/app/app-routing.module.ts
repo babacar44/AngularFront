@@ -13,6 +13,10 @@ import { RegisterPartenerComponent } from './navbar/register-partener/register-p
 import { EnvoiComponent } from './operations/envoi/envoi.component';
 import { RetraitComponent } from './operations/retrait/retrait.component';
 import { UserComponent } from './liste/user/user.component';
+import { AddcompteComponent } from './compte/addcompte/addcompte.component';
+import { CompteAffectComponent } from './partenaire/compte-affect/compte-affect.component';
+import { OpererlistComponent } from './liste/opererlist/opererlist.component';
+import { SuperUserComponent } from './liste/super-user/super-user.component';
 
 const routes: Routes = [
   { 
@@ -64,11 +68,24 @@ const routes: Routes = [
     path: 'compte',
     component: CompteComponent
   },
+  
+  {
+    path: 'affectation',
+    component: CompteAffectComponent,
+  },   
   {
     path: 'listUserPartener',
     component: UserComponent
   },
- 
+
+  {
+    path: 'listerOperations',
+    component : OpererlistComponent
+  },
+ {
+   path: 'ListerUser',
+   component : SuperUserComponent
+ }
 
 
   

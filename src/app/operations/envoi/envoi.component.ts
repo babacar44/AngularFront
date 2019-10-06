@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { OperationsService } from '../operations.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Ienvoi } from '../envoi';
 import Swal from 'sweetalert2'
 import { NgForm } from '@angular/forms';
+//import * as jsPDF from 'jspdf';
 
 
 @Component({
@@ -14,21 +15,14 @@ import { NgForm } from '@angular/forms';
 })
 export class EnvoiComponent implements OnInit {
 
+errorMessage : string;
+afficherRecu=false;
 
- postEnvoi = {}
-//  = {
-// //   id: null,
-// // CodeEnvoi : null ,
-// // Envoyeur :null,
-// // Montant :null,
-// // Destinataire :null,
-// // compte :null,
-// // cniEnvoyeur :null,
-// // telEnvoyeur :null,
-// // telRecepteur :null
-// }
+ postEnvoi ={};
+
   constructor(private _operationService : OperationsService,
-    private _router : Router, private _toastr : ToastrService) { }
+    private _router : Router, private _toastr : ToastrService,
+    private _injector : Injector) { }
 
   ngOnInit() {
 
@@ -53,24 +47,63 @@ resetUserForm(form : NgForm){
         this._operationService.faireEnvoi(this.postEnvoi)
     .subscribe(
     data =>{
-        console.log('success !', data),
-    
-        error => console.log('Error', error);
-      }
-    );
-        Swal.fire(
-          'Envoyé!',
-          'Envoi.',
-          'success'
+        console.log(data);
+        Swal.fire({
+          title : '<strong>Info</strong>',
+          type : 'success',
+          html :
+            '<h2>Destinataire</h2>'
+
+            +'<p>NomComplet : ' +data.Destinataire+'</p>'
+            +'<p>telephone : ' +data.telRecepteur+'</p>'
+
+            +'<h2>Envoyeur</h2>'
+
+            +'<p>Envoyeur : ' +data.Envoyeur +'</p>'
+            +'<p>CNI : ' +data.cniEnvoyeur+'</p>'
+            +'<p>telephone : ' +data.telEnvoyeur+'</p>'
+          
+            +'<h2>Transaction</h2>'
+            
+            +'<p>CodeEnvoi : ' +data.CodeEnvoi+'</p>' 
+            +'<p>Montant : ' +data.Montant+ 'CFA' + '</p>'
+            +'<p>Commission : ' +data.commission+ 'CFA' +  '</p>',
+
+        showCloseButton:true,
+        focusConfirm: false,
+        confirmButtonText:
+        '<i class="fa fa-thumbs-up"></i> Ok',
+        confirmButtonAriaLabel: 'Thumbs up, great!',
+        }
+          
         ),
-        this._toastr.success(' ok Envoi')
+        this._toastr.success(' ok Envoi'),
+        this.recu();
+
+      },
+  
+    
+    );
+        
       }
-    })
+    }),
+    // .then((result) => {
+    //   if (result.data) {
+    //     this.recu();
+    //   }
+    // }),
+    error =>{
+      this.errorMessage = error,
+      console.log(this.errorMessage)
+    }
 
   }
-
- 
-    
-
+  recu(){
+    this.afficherRecu=true;
+    setTimeout(()=>{
+      window.print();
+    },3000)
+  }
+  
 		
 }

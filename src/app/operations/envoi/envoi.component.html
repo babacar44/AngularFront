@@ -3,109 +3,9 @@
 </div>
 <router-outlet></router-outlet>
 
-<!-- <div class="row pt-5">
-  <div class="col-md-6 mx-auto">
-    <div class="card rounded-0">
-      <div class="card-header">
-        <h3 class="mb-0">compte</h3>
-      </div>
-      <div class="card-body" >
-        <form class="form" #userForm="ngForm" (ngSubmit)="DoEnvoi()" >  
-          <div class="form-group">
-            <label for="">CodepostEnvoi</label>
-            <input [(ngModel)]="postEnvoi.CodeEnvoi" name="CodeEnvoi"  class="form-control rounded-0" required>
-          </div>
-
-          <div class="form-group">
-            <label for="">Montant</label>
-            <input [(ngModel)]="postEnvoi.Montant" name="Montant" type="number" class="form-control rounded-0" placeholder="Montant" required>
-          </div>
-
-            <div class="form-group">
-            <label for="">Envoyeur</label>
-            <input [(ngModel)]="postEnvoi.Envoyeur" name="Envoyeur"  class="form-control rounded-0" placeholder="Envoyeur" required>
-          </div>
-
-            <div class="form-group">
-            <label for="">Destinataire</label>
-            <input [(ngModel)]="postEnvoi.Destinataire" name="Destinataire"  class="form-control rounded-0" placeholder="Destinataire" required>
-          </div>
-
-            <div class="form-group">
-            <label for="">cniEnvoyeur</label>
-            <input [(ngModel)]="postEnvoi.cniEnvoyeur" name="cniEnvoyeur"  class="form-control rounded-0" placeholder="cniEnvoyeur" required>
-          </div>
-
-            <div class="form-group">
-            <label for="">telEnvoyeur</label>
-            <input [(ngModel)]="postEnvoi.telEnvoyeur" name="telEnvoyeur"  class="form-control rounded-0" placeholder="telEnvoyeur" required>
-          </div>
-
-            <div class="form-group">
-            <label for="">telRecepteur</label>
-            <input [(ngModel)]="postEnvoi.telRecepteur" name="telRecepteur"  class="form-control rounded-0" placeholder="telRecepteur" required>
-          </div>
-
-            <div class="form-group">
-            <label for="">compte</label>
-            <input [(ngModel)]="postEnvoi.compte" name="compte"  class="form-control rounded-0" placeholder="numcompte" required>
-          </div>
-
-          <button  type="submit" class="btn btn-danger float-left"
-          (click)="resetForm(userForm)" >
-            Reset
-          </button>
-
-          <button  type="submit" class="btn btn-success float-right">
-            Deposer
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- table -->
-
-<!-- <table class="table table-bordeless">
-  <thead class="thead-light">
-    <th>CodeEnvoi</th>
-    <th>Envoyeur</th>
-    <th>Montant</th>
-    <th>Destinataire</th>
-    <th>compte</th>
-    <th>cniEnvoyeur</th>
-    <th>telEnvoyeur</th>
-    <th>telRecepteur</th>
-  </thead>
-
-  
-  <tbody>
-    <tr *ngIf="service.orderItems.length==0" [class.text-danger]="!isValid && service.orderItems.length==0">
-      <td class="font-italic text-center" colspan="5">
-        No food item selected for this order.
-      </td>
-    </tr>
-
-    <tr *ngFor="let item of service.orderItems;let i=index;">
-      <td>{{item.ItemName}}</td>
-      <td>{{item.Price}}</td>
-      <td>{{item.Quantity}}</td>
-      <td>{{item.Total}}</td>
-      <td>
-        <a class="btn btn-sm btn-info text-white" (click)="AddOrEditOrderItem(i,service.formData.OrderID)"><i class="fa fa-pencil"></i></a>
-        <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDeleteOrderItem(item.OrderItemID,i)"><i class="fa fa-trash"></i></a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<div class="form-group">
-  <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
-  <a class="btn btn-outline-dark ml-1" routerLink="/orders"><i class="fa fa-table"></i> View Orders</a>
-</div> -->
-
 
 <div class="row pt-5">
-<form class="form" #userForm="ngForm" (ngSubmit)="faireEnvoi(userForm)"  style="margin: 0 auto">  
+<form class="form" #userForm="ngForm" (ngSubmit)="faireEnvoi(userForm)"  style="margin: 0 auto" >  
 
 <div class="row">
   <!-- <div class="col-md-6 form-group">
@@ -158,7 +58,7 @@
     </div>
 
     <div class="col-md-4">
-        <button class="btn btn-danger btn-block btn-lg" (click)="resetUserForm(userForm)" ><i class="fas fa-retweet"></i>
+        <button class="btn btn-danger btn-block btn-lg" (click)="resetUserForm(userForm)" *ngIf="!afficherRecu"><i class="fas fa-retweet"></i>
           Reset
         </button>
       </div>
@@ -166,3 +66,40 @@
 </form>    
 
 </div>
+<div class="row">
+<form action="">
+<div class="form-group">
+
+  <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}
+    
+  </div>
+</div>
+</form>
+</div>
+
+<!-- <fieldset *ngIf="afficherRecu">
+  <legend>WAriApp</legend>
+  <h3 class="text-center titre">Reçu d'envoi</h3>
+  <div class="row">
+      <p class="col-sm-3"><strong>Entreprise :</strong> {{postEnvoi.RaisonSociale}}</p>
+      <p class="col-sm-3"><strong>Date :</strong> {{postEnvoi.DateEnvoi}}</p>
+  </div>
+  <fieldset>
+      <legend>Bénéficiaire</legend>
+      <p>Nom : {{postEnvoi.Destinataire}}</p>
+      <p>Téléphone : {{postEnvoi.telRecepteur}}</p>
+  </fieldset>
+  <fieldset>
+      <legend>Envoyeur</legend>
+      <p>Nom : {{postEnvoi.Envoyeur}}</p>
+      <p>NCI : {{postEnvoi.cniEnvoyeur}}</p>
+      <p>Téléphone : {{postEnvoi.telEnvoyeur}}</p>
+  </fieldset>
+  <fieldset>
+      <legend>Transaction</legend>
+      <p>Code : {{postEnvoi.CodeEnvoi}}</p>
+      <p>Commissions TTC : {{postEnvoi.commission}} </p>
+      <p>Montant Envoyé : {{postEnvoi.Montant}}</p>
+
+  </fieldset>
+</fieldset> -->

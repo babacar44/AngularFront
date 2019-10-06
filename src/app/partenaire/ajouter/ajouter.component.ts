@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./ajouter.component.css']
 })
 export class AjouterComponent implements OnInit {
+  [x: string]: any;
 
   addpartener ={}
   constructor(private _part : PartenaireService,
@@ -17,20 +18,9 @@ export class AjouterComponent implements OnInit {
 
   ngOnInit() {
     // this.resetForm();
-    this._part.getPartenaire();
+    this.getPartenaire;
   }
 
-  // resetForm(form? : NgForm){
-  //   form.resetForm();
-  //   if(form != null)
-  //   this._part.addpartener = {
-  //       raisonSociale : null,
-  //       nomComplet : null,
-  //       telephone : null,
-  //       email : null ,
-  //       adresse : null,
-  //   }
-  // }
   onPartenaire(){
       
     this._part.onPartenaire(this.addpartener)
@@ -40,8 +30,9 @@ export class AjouterComponent implements OnInit {
 
         this._toastr.success('Partenaire Bien Ajouté'),
         this._part.getPartenaire();
-
-        // this.resetForm(form),
+        this.ngOnInit();
+        this.resetForm(),
+        this._router.navigate(['/partenaire'])
         error => console.log('Error', error);
 
       }

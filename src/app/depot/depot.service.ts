@@ -11,20 +11,27 @@ import 'rxjs/add/observable/throw';
 })
 export class DepotService {
 
+
   private _depotUrl = "  http://localhost:8000/api/depot"
 
   private _CompteUrl =  "http://localhost:8000";
+
+  private _numcompteFinder = " http://localhost:8000/api/compteFinder";
 
   constructor(private http : HttpClient, private _injector : Injector) { }
 
   //injection du service
  authentication = this._injector.get(AuthService);
 
-  onDepot(somdepot: {}){
-    return this.http.post(this._depotUrl, somdepot)
-    .map((res) => res).catch(this.authentication.handleError)
+  faireDepot(data){
+    return this.http.post<any>(this._depotUrl, data)
+    // .map((res) => res).catch(this.authentication.handleError)
     
     
+  }
+
+  rechercherCompte(data){
+    return this.http.post<any>(this._numcompteFinder,data)
   }
 
   onListerCompte() :Observable<any>{

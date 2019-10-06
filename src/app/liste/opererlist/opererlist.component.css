@@ -1,0 +1,24 @@
+table {
+    width: 50%;
+    margin-top: 5%
+
+}
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 15%;
+    /* margin-top: 2% */
+
+  }
+  .mat-form-field .ok{
+    width: 25%;
+
+  }
+  
+  th{
+    background: #00c851;
+    color: white;
+  }
+  td, th {
+    width: 5%;
+  } 

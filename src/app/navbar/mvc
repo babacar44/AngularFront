@@ -1,0 +1,73 @@
+Objectif
+
+identifier les differents composants utlisés pour developper des apps java EE 
+comprendre comment ils sont liés les uns aux autres 
+et comment ils interagissent 
+
+
+le modele mvc 
+Pour faire simple comme definition on va dire que le modele mvc est un concept faisant partie des bonnes pratiques en developpement de code.
+Il nous permet d'organiser notre code de façon à pour retrouver facilement une ligne de code ou une fonction à modifier.
+Le modele MVC "decoupe" notre application en couche distincte . 
+MVC = Modele Vue Controller . En d'autre termes, developper en MVC revient à decouper notre code en trois couches ayant chacune un role bien precise.
+
+La couche Vue
+C'est la partie de notre code qui s'occupera de presenter les donnees à l'utilisateur . Elle retourne les données provenant depuis le modele sous 
+forme d'une vue généralement en HTML.
+
+La couche Controleur
+C'est la couche chargé de router l'information c'est-à-dire de diriger l'information,
+elle va decider qui va recuperer l'information ou la traiter .Elle gere aussi  les requetes et 
+retourne une reponse avec l'aide du Modele et de la Vue.
+
+La couche Modele
+C'est la partie du code qui execute la logique métier de notre apllication. c'est-à-dire qu elle est responsable de recuperer les données ,
+de les convertir selon les concepts de la logique de notre application tel que le traitemeent, la validation ... . 
+Elle est aussi responsable de l'interaction avec la base de donnees, elle sait comment se connecter à la base de donnees
+et d'executer les requetes CRUD sur la base de donnees.
+
+Comment jEE implemente-t-il le modele mvc
+
+ Avec la plateforme JEE, chaque element du MVC porte en quelque sorte un nom :
+ Le Controleur porte le nom de Servlet 
+ le Modele est géré en general par des objets java ou javaBeans. Il peut aussi etre appelé à communiquer avec la base de donnnée
+ pour stocker, persister ou garder les informations le plus longtemps possible.
+ La Vue est géré par par les pages JSP (java Server Pages) qui sont des pages qui vont utilisés du HTLM et  generalement du code java.
+ Cette vue est retourné au visiteur par le Controller notamment la Servlet.
+
+    En java EE, une servlet est une classe Java ayant la capacité de recevoir et de permettre le traitement des requetes HTTP du client et de le
+    lui renvoyer sous forme de reponse http.
+    Une Servlet doit toujours herité de la classe HttpServlet qui est en effet une classe Abstraite qui fournit des methodes qui doivent etre 
+    redefinir dans les classes heritieres.
+    Parmi ces methodes on peut en citer :
+
+ doGet() : utilisé par le client, elle permet de recuperer une ressource du serveur. ce dernier renvoi au client les ressource demandé ainsi 
+            que diverses informations à son sujet  tel que les entetes (Head head), la longueurs des donnees ...
+ doPost() : permet de soummettre au serveur des donnees de taille variable 
+ doHead(): comme la methode doGet(), elle permet de recuperer des ressources mais fera une limitation sur les informations retournées
+
+ La mise en place d'une Servlet se fait en deux parties :
+ Declarer notre servlet  c'est-à-dire lui donner un moyen d'etre reconnu par le serveur
+ Faire son Mapping, il s'agit de faire correspondre notre servlet declaré à une URL afin qu' elle soit joignable par les clients.
+
+ LES JSP
+
+    Executer coté serveur, une page JSP sert à presenter les donnnées (une vue). 
+    C'est un document ressemblant beaucoup à une page HTML mais differe par plusieurs aspects
+
+    . l'extension d'une telle page est .jsp et non .htlm
+    . Une page JSP contient des balises htlm et des balises jsp qui appellent du code java
+    . Contrairement à une page HTML, une page JSP est éxecuter coté serveur et genere dynamiquement une page renvoyé au client.
+
+ Les javaBeans
+ Sont un modele de composants du language java . Elle represente les donnees du monde reel.
+ les principaux concepts mise en place pour un Bean sont :
+. Un bean est un objet java reutilisable
+. Un bean represente une entité avec des attributs non publics accessible que par des getters et setters
+. Un bean a au moins un constructeur par defaut public  sans parametre
+. Un bean peut etre transmit d'une servlet vers une page JSP (ou un autre servlet) en tant qu'attribut de requete
+
+
+
+
+

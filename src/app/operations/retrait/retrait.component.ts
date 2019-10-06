@@ -22,13 +22,7 @@ export class RetraitComponent implements OnInit {
   ];
   afficher:boolean=false;
 
-  infoRetrait : any =[
-    {
-      CodeEnvoi : ' ',
-    cniRecepteur : ' '
-    
-  }
-  ]
+  infoRetrait={}
 
   constructor(private _operer : OperationsService, private _toastr : ToastrService) { }
 
@@ -51,9 +45,7 @@ onRetrait(codeEnvoiArray){
         console.log(data);
         this.codeEnvoiArray = data
         this.afficher=true;
-      //  if (codeEnvoiArray) {
-      //   this.isverify
-      //  }
+     
     
       },
       err=>console.log(err),

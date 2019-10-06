@@ -1,6 +1,6 @@
-<div >
+<!-- <div >
   <app-navbar></app-navbar>
-</div>
+</div> -->
 
 
 <mat-form-field>
@@ -30,15 +30,13 @@
     <!-- Name Column -->
     <ng-container matColumnDef="propriete">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> propriete </th>
-      <td mat-cell *matCellDef="let row"> {{row.propriete}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.propriete}} </td>
     </ng-container>
 
-  
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="telephone">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> telephone </th>
-      <td mat-cell *matCellDef="let row"> {{row.telephone}} </td>
+      
+    <ng-container matColumnDef="idCompte">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> idcompte </th>
+        <td mat-cell *matCellDef="let row"> {{row.compte.id}} </td>
     </ng-container>
 
   
@@ -66,7 +64,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;">
     </tr>
+    
   </table>
+  
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>

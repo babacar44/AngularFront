@@ -15,12 +15,12 @@ export class AuthService {
   // private _registerUrl = " http://localhost:8000/api/inscription"
   // private _depotUrl = "  http://localhost:8000/api/depot"
 
-  private _loginUrl = "  http://localhost:8000/api/login"
+  private _loginUrl = "  http://localhost:8000/authenticate"
 
 
   jwt : string;
-  email : string;
-  roles : Array<string>;
+  username : string;
+  role : Array<string>;
 
   constructor(private http : HttpClient,
       private _router: Router) { }
@@ -31,7 +31,7 @@ export class AuthService {
         
       // }
 
-  registerUser(User: { imageName: any; nomComplet?: any; propriete?: any; adresse?: any; statut?: any; email?: any; telephone?: any; password?: any; partenaire?: any; compte?: any; passwordConfirmation?: any; profil?: any; }){
+ registerUser(User: { imageName: any; nomComplet?: any; propriete?: any; adresse?: any; statut?: any; email?: any; telephone?: any; password?: any; partenaire?: any; compte?: any; passwordConfirmation?: any; profil?: any; }){
     // return this.http.post<any>(this._registerUrl, user)
 
     const endpoint = 'http://localhost:8000/api/inscription';
@@ -55,9 +55,10 @@ export class AuthService {
   }
 
   
-  login(user: any){
+  login(user){
     return this.http.post<any>(this._loginUrl, user, {observe:'response'})
     .map((res) => res).catch(this.handleError)
+    //.map((res) => res).catch(this.handleError)
     
     //par defaut on recupere les donnees sous formes json 
 
@@ -83,48 +84,48 @@ export class AuthService {
     this.parseJWT();
   }
 
-  //a partir jwt on recupere l email et les roles
+  //a partir jwt on recupere l email et les role
   //
   parseJWT(){
-    //ici on recupere email et les roles 
+    //ici on recupere email et les role 
     let jwtHelper = new JwtHelperService();
     let objJWT = jwtHelper.decodeToken(this.jwt);
     console.log(objJWT)
-    this.email = objJWT.email;
-    console.log(this.email);
-    this.roles = objJWT.roles;
-    console.log(this.roles);
+    this.username = objJWT.username;
+    console.log(this.username);
+    this.role = objJWT.role;
+    console.log(this.role);
 
   ;
 
   }
 
   isSuperAdmin(){
-    return this.roles.indexOf("ROLE_SUPER_ADMIN")>=0;
+    return this.role.indexOf("ROLE_SUPER_ADMIN")>=0;
   }
 
   isCaissier(){
-    return this.roles.indexOf("ROLE_CAISSIER")>=0;
+    return this.role.indexOf("ROLE_CAISSIER")>=0;
   }
 
   isPartener(){
-    return this.roles.indexOf("ROLE_ADMIN_PARTENER")>=0;
+    return this.role.indexOf("ROLE_ADMIN_PARTENER")>=0;
   }
 
   isAdminWari(){
-    return this.roles.indexOf("ROLE_ADMIN_WARI")>=0;
+    return this.role.indexOf("ROLE_ADMIN_WARI")>=0;
   }
 
   isUser(){
-    return this.roles.indexOf("ROLE_USER")>=0;
+    return this.role.indexOf("ROLE_USER")>=0;
   }
 
   isAdminPartener(){
-    return this.roles.indexOf("ROLE_ADMIN")>=0;
+    return this.role.indexOf("ROLE_ADMIN")>=0;
   }
 
   isAuthenticated(){
-    return this.roles && (this.isAdminWari() ||
+    return this.role && (this.isAdminWari() ||
      this.isAdminPartener() 
     || this.isCaissier() || this.isUser() ||
      this.isSuperAdmin() || this.isPartener());
@@ -142,4 +143,9 @@ export class AuthService {
     
 
   }
+ /* initParams(){
+    this.jwt=undefined;
+    this.username=undefined;
+    this.role=undefined;
+  }*/
 }

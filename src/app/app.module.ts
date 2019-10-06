@@ -33,6 +33,10 @@ import { EnvoiComponent } from './operations/envoi/envoi.component';
 import { EnvoiListComponent } from './operations/envoi-list/envoi-list.component';
 import { RetraitComponent } from './operations/retrait/retrait.component';
 import { UserComponent } from './liste/user/user.component';
+import { CompteService } from './compte/compte.service';
+import { CompteAffectComponent } from './partenaire/compte-affect/compte-affect.component';
+import { OpererlistComponent } from './liste/opererlist/opererlist.component';
+import { SuperUserComponent } from './liste/super-user/super-user.component';
 
 
 @NgModule({
@@ -46,7 +50,10 @@ import { UserComponent } from './liste/user/user.component';
     OperationsComponent,
     CompteComponent,
     NavbarComponent,
- 
+    AddcompteComponent,
+    RetraitComponent,
+    CompteAffectComponent,
+     
     AjoutdepotComponent, 
     ListercompteComponent,
     AjouterComponent,
@@ -58,6 +65,9 @@ import { UserComponent } from './liste/user/user.component';
     EnvoiListComponent,
     RetraitComponent,
     UserComponent,
+    CompteAffectComponent,
+    OpererlistComponent,
+    SuperUserComponent,
     
     
 
@@ -86,7 +96,7 @@ import { UserComponent } from './liste/user/user.component';
   
   ],
     
-  providers: [AuthService,AuthGuard,PartenaireService,OperationsService,DepotService,
+  providers: [AuthService,AuthGuard,PartenaireService,OperationsService,DepotService,CompteService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

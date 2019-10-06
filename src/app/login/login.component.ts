@@ -19,19 +19,54 @@ export class LoginComponent implements OnInit {
 
   }
   
-  loginUser(user: any){
+  loginUser(){
     this._auth.login(this.loginUserData)
     .subscribe(
       res=>{
-        let jwt = res.body;
-        console.log(jwt.message);
-        this.errorMessage = jwt.message
-        this._auth.saveToken(jwt);
+        console.log(res)
+        let jwt = res.body['token'];
+        console.log(jwt);
+        //this.errorMessage = jwt.message
+        this._auth.saveToken(jwt);  
         this._router.navigate(['/accueil']);
 
+
+        /*if (this.isSuperAdmin()) {
+          this._router.navigate(['/partenaire']);
+
+        }
+
+        if (this.isCaissier()) {
+          this._router.navigate(['/depot']);
+
+        }
+
+
+        if (this.isPartener()) {
+          this._router.navigate(['/affectation']);
+
+        }
+
+
+        if (this.isAdminWari()) {
+          this._router.navigate(['/partenaire']);
+
+        }
+
+
+        if (this.isUser()) {
+          this._router.navigate(['/listerOperations']);
+
+        }
+        
+        
+        if (this.isAdminPartener()) {
+          this._router.navigate(['/operations']);
+
+        }*/
       }, 
       error=>{this.errorMessage = error
-       console.log(this.errorMessage)
+      // console.log(this.errorMessage)
         }
     );
   }

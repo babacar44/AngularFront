@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Icompte } from './compte';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +15,14 @@ export class CompteService {
   private _CompteUrl =  "http://localhost:8000/api/listercompte";
 
   
-postCompte(compte: {}){
+postCompte(data: string){
+  console.log(data);
   return this.http.post<any>(this._postcompteUrl
-    ,compte)
+    ,{"partenaire":data})
 }
 
-ListerCompte() :Observable<any>{
-  return this.http.get<any>(this._CompteUrl)
+ListerCompte() :Observable<Icompte[]>{
+  return this.http.get<Icompte[]>(this._CompteUrl)
             //  .pipe(catchError(this.errorHandler));
 }
  

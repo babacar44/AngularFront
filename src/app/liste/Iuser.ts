@@ -6,4 +6,5 @@ export class Iuser {
      adresse: string;
      roles: any;
      status: string
+     idcompte : any
 }

@@ -5,6 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserService } from '../user.service';
 import { AuthService } from '../../auth.service';
+import { CompteService } from 'src/app/compte/compte.service';
+import { Icompte } from '../../compte/compte';
 
 @Component({
   selector: 'app-user',
@@ -13,15 +15,15 @@ import { AuthService } from '../../auth.service';
 })
 export class UserComponent implements OnInit {
   
-  displayedColumns: string[] = ['id' ,'email', 'nomComplet', 'propriete', 'telephone','roles','statut','boutton']
+  displayedColumns: string[] = ['id' ,'email', 'nomComplet', 'propriete','roles','statut','idCompte','boutton']
   dataSource: MatTableDataSource<Iuser>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-
+  private idCompteData : [];
   private users : [];
-  constructor(private _userService : UserService, private _auth : AuthService
+  constructor(private _userService : UserService, private _auth : AuthService, private _compteservice : CompteService
               ) { }
 
   loadData(data){
@@ -31,6 +33,7 @@ export class UserComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
   ngOnInit() {
+    
     this. _userService.getUserPartener()
     .subscribe(
       res  => { this.users = res,
@@ -57,6 +60,19 @@ export class UserComponent implements OnInit {
         )
       }
   }
+
+
+  // select(){
+  //   console.log(this.idCompteData)
+  //   this._compteservice.ListerCompte()
+  //   .subscribe(
+  //     res=>{this.idCompteData = res,
+  //       this.loadData(this.idCompteData);
+  //     //  this.ngOnInit();
+  //       },
+  //       err=>console.log(err),
+  //   )
+  // }
   isAdminPartener(){
     return this._auth.isAdminPartener()
   }

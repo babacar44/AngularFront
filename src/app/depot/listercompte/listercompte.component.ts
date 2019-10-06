@@ -11,7 +11,7 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./listercompte.component.css']
 })
 export class ListercompteComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'ninea','raisonSociale', 'numCompte','solde']
+  displayedColumns: string[] = ['id','raisonSociale', 'numCompte','solde']
   dataSource: MatTableDataSource<Idepot>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -34,11 +34,10 @@ export class ListercompteComponent implements OnInit {
 }
   ngOnInit() {
   this._depotservice.onListerCompte( )
-  
   .subscribe(
     res=>{this.depots = res,
       this.loadData(this.depots);
-      this.ngOnInit();
+    //  this.ngOnInit();
       },
       err=>console.log(err),
   )

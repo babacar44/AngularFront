@@ -37,7 +37,8 @@ imageUrl:string="/assets/img/Avatar-Transparent-Image.png"
         console.log(res)
       // localStorage.setItem('token', res.token)
       // this._router.navigate(['/partenaire'])
-      this._toastr.success('Partenaire Bien Ajouté')
+      this._toastr.success('Bien Ajouté')
+      // this._router.navigate(['/listUserPartener'])
 
       },
       (      err: any)=>console.log(err),
