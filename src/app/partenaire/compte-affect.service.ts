@@ -11,7 +11,7 @@ export class CompteAffectService {
   constructor(private http : HttpClient) { }
 
 
-private _listCompt =  "http://localhost:8000/api/trouverCompte";
+private _listCompt =  "http://localhost:8000/compte/lister";
 private _affecter = "http://localhost:8000/api/affectationCompte";
 
 

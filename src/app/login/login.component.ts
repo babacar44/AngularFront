@@ -24,14 +24,14 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res=>{
         console.log(res)
-        let jwt = res.body['token'];
+        let jwt = res.token;
         console.log(jwt);
         //this.errorMessage = jwt.message
         this._auth.saveToken(jwt);  
-        this._router.navigate(['/accueil']);
+       // this._router.navigate(['/accueil']);
 
 
-        /*if (this.isSuperAdmin()) {
+        if (this.isSuperAdmin()) {
           this._router.navigate(['/partenaire']);
 
         }
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 
 
         if (this.isPartener()) {
-          this._router.navigate(['/affectation']);
+          this._router.navigate(['/registerPartener']);
 
         }
 
@@ -61,9 +61,9 @@ export class LoginComponent implements OnInit {
         
         
         if (this.isAdminPartener()) {
-          this._router.navigate(['/operations']);
+          this._router.navigate(['/registerPartener']);
 
-        }*/
+        }
       }, 
       error=>{this.errorMessage = error
       // console.log(this.errorMessage)

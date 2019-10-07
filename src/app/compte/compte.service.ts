@@ -10,9 +10,9 @@ export class CompteService {
 
   constructor(private http : HttpClient) { }
 
-  private _postcompteUrl =  "http://localhost:8000/api/addcompte"
+  private _postcompteUrl =  "http://localhost:8000/compte/ajouter"
 
-  private _CompteUrl =  "http://localhost:8000/api/listercompte";
+  private _CompteUrl =  "http://localhost:8000/compte/listerAllCompte";
 
   
 postCompte(data: string){

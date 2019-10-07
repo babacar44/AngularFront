@@ -10,8 +10,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterPartenerComponent implements OnInit {
 
-  imageUrl:string="/assets/img/Avatar-Transparent-Image.png"
-  registerUserData = {imageName : File=null}
+  //imageUrl:string="/assets/img/Avatar-Transparent-Image.png"
+ // registerUserData = {imageName : File=null}
+  registerUserData = {}
   errorMessage = [];
   constructor(private _auth : AuthService,
       private _router : Router, private _toastr : ToastrService) { }
@@ -19,16 +20,16 @@ export class RegisterPartenerComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleFileInput(file : FileList){
-    this.registerUserData.imageName = file.item(0);
+  // handleFileInput(file : FileList){
+  //   this.registerUserData.imageName = file.item(0);
 
-    //show image preview 
-    var reader =  new  FileReader();
-    reader.onload = (event:any) => {
-      this.imageUrl = event.target.result;
-    }
-    reader.readAsDataURL(this.registerUserData.imageName);
-  }
+  //   //show image preview 
+  //   var reader =  new  FileReader();
+  //   reader.onload = (event:any) => {
+  //     this.imageUrl = event.target.result;
+  //   }
+  //   reader.readAsDataURL(this.registerUserData.imageName);
+  // }
 
   registerUser(){
     this._auth.registerUser(this.registerUserData)
@@ -40,7 +41,7 @@ export class RegisterPartenerComponent implements OnInit {
       this._toastr.success('Partenaire Bien Ajouté')
 
       },
-      error=>{this.errorMessage = error.errors.detail,
+      error=>{this.errorMessage = error,
         console.log(this.errorMessage)}
 
 

@@ -15,7 +15,7 @@ import { Icompte } from '../../compte/compte';
 })
 export class UserComponent implements OnInit {
   
-  displayedColumns: string[] = ['id' ,'email', 'nomComplet', 'propriete','roles','statut','idCompte','boutton']
+  displayedColumns: string[] = ['id' ,'email', 'name', 'propriete','statut','boutton']
   dataSource: MatTableDataSource<Iuser>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

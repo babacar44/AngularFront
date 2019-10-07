@@ -11,18 +11,18 @@ export class UserService {
 
   constructor(private http : HttpClient) { }
 
-  private _urlListUser = " http://localhost:8000/api/listerUser";
-  private _urlstatus = " http://localhost:8000/api/listerUser/";
-  private _CompteUrl =  "http://localhost:8000/api/listercompte";
+  private _urlListUser = "http://localhost:8000/partenaire/listerUser";
+  private _urlstatus = " http://localhost:8000/partenaire/changerStatut/";
+  private _CompteUrl =  "http://localhost:8000/compte/lister";
   private _OperationsList = " http://localhost:8000/api/listerOperation";
-  private _ListerAdmin = " http://localhost:8000/api/listerUserSuper";
+  private _ListerAdmin = " http://localhost:8000/super/listerUser";
 
 getUserPartener() : Observable <any>{
  return this.http.get<any>(this._urlListUser);
 }
 
 updateStatus(id) : Observable<any>{
-  return this.http.get<any>(this._urlstatus + id)
+  return this.http.post<any>(this._urlstatus + id,id)
 
 }
 

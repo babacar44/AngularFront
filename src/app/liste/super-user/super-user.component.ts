@@ -13,7 +13,7 @@ import { AuthService } from '../../auth.service';
 })
 export class SuperUserComponent implements OnInit {
 
-  displayedColumns: string[] = ['id' ,'email', 'nomComplet', 'propriete','roles','statut','boutton']
+  displayedColumns: string[] = ['id' ,'email', 'name', 'propriete','statut','boutton']
   dataSource: MatTableDataSource<Iuser>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

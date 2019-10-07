@@ -10,19 +10,20 @@ import { catchError } from 'rxjs/operators';
 export class PartenaireService {
   [x: string]: any;
 
-  private _partenaireUrl =  "http://localhost:8000";
-  private _edit = " http://localhost:8000/api/listerpart/";
+  private _getlistpartenaire =  "http://localhost:8000/super/listerPartenaire";
+  private _edit = " http://localhost:8000/super/bloquerPartenaire/";
   private _getIt ="http://localhost:8000/api/listerpartener/";
+  private _partenaireUrl ="http://localhost:8000/super/partenaireAdd";
 
   constructor(private http : HttpClient, private _injector : Injector) { }
 
   getPartenaire() : Observable<any>{
-    return this.http.get<any>(this._partenaireUrl+"/api/listerpartenaire")
+    return this.http.get<any>(this._getlistpartenaire)
               //  .pipe(catchError(this.errorHandler));
   }
 
   onPartenaire(partenaire: any){
-    return this.http.post<any>(this._partenaireUrl+"/api/partenaire",partenaire)
+    return this.http.post<any>(this._partenaireUrl,partenaire)
     .map((res) => res).catch(this.handleError)
 
   }

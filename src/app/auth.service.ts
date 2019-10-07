@@ -12,7 +12,7 @@ import 'rxjs/add/observable/throw';
   providedIn: 'root'
 })
 export class AuthService {
-  // private _registerUrl = " http://localhost:8000/api/inscription"
+ private _registerUrl = "http://localhost:8000/partenaire/ajouterUser"
   // private _depotUrl = "  http://localhost:8000/api/depot"
 
   private _loginUrl = "  http://localhost:8000/authenticate"
@@ -30,14 +30,15 @@ export class AuthService {
 
         
       // }
-
- registerUser(User: { imageName: any; nomComplet?: any; propriete?: any; adresse?: any; statut?: any; email?: any; telephone?: any; password?: any; partenaire?: any; compte?: any; passwordConfirmation?: any; profil?: any; }){
+/*
+ registerUser(User: { imageName: any; name?: any; propriete?: any; adresse?: any; statut?: any; email?: any; telephone?: any; password?: any; partenaire?: any; username?: any; passwordConfirmation?: any; profil?: any; }){
     // return this.http.post<any>(this._registerUrl, user)
 
-    const endpoint = 'http://localhost:8000/api/inscription';
+    const endpoint = 'http://localhost:8000/partenaire/ajouterUser';
     const formData: FormData = new FormData();
     formData.append('imageName',User.imageName);
-    formData.append('nomComplet',User.nomComplet);
+    formData.append('username',User.username);
+    formData.append('name',User.name);
     formData.append('propriete',User.propriete);
     formData.append('adresse',User.adresse);
     formData.append('statut',User.statut);
@@ -45,7 +46,6 @@ export class AuthService {
     formData.append('telephone',User.telephone);
     formData.append('password',User.password);
     formData.append('partenaire',User.partenaire);
-    formData.append('compte',User.compte);
     formData.append('passwordConfirmation',User.passwordConfirmation);
     formData.append('profil',User.profil);
         
@@ -53,18 +53,19 @@ export class AuthService {
     .post(endpoint, formData).map((res) => res).catch(this.handleError);
 
   }
-
-  
+*/
+  registerUser(user){
+    return this.http.post<any>(this._registerUrl, user)
+  }
   login(user){
-    return this.http.post<any>(this._loginUrl, user, {observe:'response'})
-    .map((res) => res).catch(this.handleError)
+    return this.http.post<any>(this._loginUrl, user)
+    //.map((res) => res).catch(this.handleError)
     //.map((res) => res).catch(this.handleError)
     
     //par defaut on recupere les donnees sous formes json 
 
     // observe donne tte la reponse http mais ne le converti pas en json
   }
-
 
 
   logoutUser(){
@@ -79,8 +80,8 @@ export class AuthService {
 
   saveToken(jwt: string){
     //save le token dans le localStorage notamment dans jwt 
-    localStorage.setItem('token',jwt['token']);
-    this.jwt=jwt['token'];
+    localStorage.setItem('token',jwt);
+    this.jwt=jwt;
     this.parseJWT();
   }
 
@@ -93,7 +94,7 @@ export class AuthService {
     console.log(objJWT)
     this.username = objJWT.username;
     console.log(this.username);
-    this.role = objJWT.role;
+    this.role = objJWT.roles;
     console.log(this.role);
 
   ;
@@ -131,7 +132,7 @@ export class AuthService {
      this.isSuperAdmin() || this.isPartener());
   }
 
-  loadToken(){;
+  loadToken(){
     this.jwt=localStorage.getItem('token');
     this.parseJWT();
   }

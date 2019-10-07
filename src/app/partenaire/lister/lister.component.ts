@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./lister.component.css']
 })
 export class ListerComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'ninea', 'raisonSociale', 'nomComplet','telephone','email','adresse','statut','boutton']
+  displayedColumns: string[] = ['id', 'ninea', 'raisonSociale','telephone','email','adresse','statut','boutton']
   dataSource: MatTableDataSource<Ipartenaire>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

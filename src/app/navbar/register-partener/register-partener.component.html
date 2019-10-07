@@ -3,69 +3,7 @@
 </div>
 
 
-<!------ Include the above in your HEAD tag ---------->
-<!-- <div class="row pt-5">
-  <div class="col-md-6 mx-auto">
-    <div class="card rounded-0">
-      <div class="card-header">
-        <h3 class="mb-0">Register</h3>
-      </div>
-      <div class="card-body">
-        <form class="form">
-          <div class="form-group">
-            <label for="">Email</label>
-            <input [(ngModel)]="registerUserData.email" name="email" type="text" class="form-control rounded-0" placeholder="" required>
-          </div>
-          <div class="form-group">
-            <label for="">Password</label>
-            <input [(ngModel)]="registerUserData.password" name="password" type="password" class="form-control rounded-0" placeholder="" required>
-          </div>
-          <div class="form-group">
-            <label for="">Password Confirmation</label>
-            <input [(ngModel)]="registerUserData.passwordConfirmation" name="passwordConfirmation" type="password" class="form-control rounded-0" placeholder="" required>
-          </div>
-          <div class="form-group">
-            <label for="">nomComplet</label>
-            <input [(ngModel)]="registerUserData.nomComplet" name="nomComplet" type="text" class="form-control rounded-0" placeholder="" required>
-          </div>
-          <div class="form-group">
-            <label for="">propriete</label>
-            <input [(ngModel)]="registerUserData.propriete" name="propriete" type="text" class="form-control rounded-0" placeholder="" required>
-          </div>
-          <div class="form-group">
-            <label for="">adresse</label>
-            <input [(ngModel)]="registerUserData.adresse" name="adresse" type="text" class="form-control rounded-0" placeholder="" required>
-          </div>
-          <div class="form-group">
-            <label for="">telephone</label>
-            <input [(ngModel)]="registerUserData.telephone" name="telephone" type="text" class="form-control rounded-0" placeholder="" required>
-          </div>
-          <div class="form-group">
-            <label for="">profil</label>
-            <input [(ngModel)]="registerUserData.profil" name="profil" type="text" class="form-control rounded-0" placeholder="" required>
-          </div>
-          <div class="form-group">
-            <label for="">imageFile</label>
-            <img [src]="imageUrl" style="width: 250px;height:200px">
-            <input   (change)="handleFileInput($event.target.files)" #image accept="images/*" name="imageName" 
-            type="file" class="form-control rounded-0" placeholder="" required>
-          </div>
-          <div class="form-group">
-            <label for="">partenaire</label>
-            <input [(ngModel)]="registerUserData.partenaire" name="partenaire" type="text" class="form-control rounded-0" placeholder="" required>
-          </div>
-          <div class="form-group">
-            <label for="">compte</label>
-            <input [(ngModel)]="registerUserData.compte" name="compte" type="text" class="form-control rounded-0" placeholder="" required>
-          </div>
-          <button (click)="registerUser()" type="button" class="btn btn-primary float-right">
-            Register
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div> -->
+
 
 <div class="container register">
     <div class="row">
@@ -94,6 +32,11 @@
                                 <input [(ngModel)]="registerUserData.email" name="email" type="text" class="form-control rounded-0" placeholder="Enter email"required>
                               </div>
 
+                              <div class="form-group">
+                                <label for="">Username</label>
+                                <input [(ngModel)]="registerUserData.username" name="username" type="text" class="form-control rounded-0" placeholder="Enter username"required>
+                              </div>
+
                             <div class="form-group">
                               <label for="">Password</label>
                               <input [(ngModel)]="registerUserData.password" name="password" type="password" class="form-control rounded-0" placeholder="password"  required>
@@ -105,13 +48,13 @@
 
                             <div class="form-group">
                               <label for="">nomComplet</label>
-                              <input [(ngModel)]="registerUserData.nomComplet" name="nomComplet" type="text" class="form-control rounded-0" placeholder="nomComplet" required>
+                              <input [(ngModel)]="registerUserData.name" name="name" type="text" class="form-control rounded-0" placeholder="nomComplet" required>
                             </div>
 
                             <div class="form-group">
                                 <div class="maxl">
                                     <label class="radio inline"> 
-                                        <input type="radio" [(ngModel)]="registerUserData.profil" name="profil"  value="1" checked>
+                                        <input type="radio" [(ngModel)]="registerUserData.profil" name="profil"  value="1" checked="checked">
                                         <span> ADMIN </span> 
                                     </label>
                                 </div>
@@ -139,10 +82,10 @@
                                 <input [(ngModel)]="registerUserData.partenaire" name="partenaire" type="text" class="form-control rounded-0" placeholder="partenaire" required>
                               </div> -->
 
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                   <label for="">compte</label>
                                   <input [(ngModel)]="registerUserData.compte" name="compte" type="text" class="form-control rounded-0" placeholder="compte" required>
-                                </div>
+                                </div> -->
 
                             </div>  
                             
@@ -153,13 +96,16 @@
                                     <input [(ngModel)]="registerUserData.propriete" name="propriete" type="text" class="form-control rounded-0" placeholder="propriete" required>
                                   </div> -->
     
-
+<!-- 
                             <div class="form-group">
                                 <img [src]="imageUrl" class="image">
                                 <input   (change)="handleFileInput($event.target.files)" #image accept="images/*" name="imageName" 
                                 type="file" class="form-control rounded-0"  required>
+                            </div> -->
+                            <div class="form-group">
+                              <label for="">photo</label>
+                              <input [(ngModel)]="registerUserData.photo" name="photo" type="text" class="form-control rounded-0" placeholder="photo" required>
                             </div>
-
 
                             <button (click)="registerUser()" type="button" class="btn btn-success float-right">
                                 Register
@@ -177,7 +123,10 @@
                                 <label for="">Email</label>
                                 <input [(ngModel)]="registerUserData.email" name="email" type="text" class="form-control rounded-0" placeholder="Enter email"required>
                               </div>
-
+                              <div class="form-group">
+                                <label for="">Username</label>
+                                <input [(ngModel)]="registerUserData.username" name="username" type="text" class="form-control rounded-0" placeholder="Enter username"required>
+                              </div>
                             <div class="form-group">
                               <label for="">Password</label>
                               <input [(ngModel)]="registerUserData.password" name="password" type="password" class="form-control rounded-0" placeholder="password"  required>
@@ -189,7 +138,7 @@
 
                             <div class="form-group">
                               <label for="">nomComplet</label>
-                              <input [(ngModel)]="registerUserData.nomComplet" name="nomComplet" type="text" class="form-control rounded-0" placeholder="nomComplet" required>
+                              <input [(ngModel)]="registerUserData.name" name="name" type="text" class="form-control rounded-0" placeholder="nomComplet" required>
                             </div>
 
                             <div class="form-group">
@@ -222,11 +171,11 @@
                                 <label for="">partenaire</label>
                                 <input [(ngModel)]="registerUserData.partenaire" name="partenaire" type="text" class="form-control rounded-0" placeholder="partenaire" required>
                               </div> -->
-
+<!-- 
                               <div class="form-group">
                                   <label for="">compte</label>
                                   <input [(ngModel)]="registerUserData.compte" name="compte" type="text" class="form-control rounded-0" placeholder="compte" required>
-                                </div>
+                                </div> -->
 
                             </div>  
                             
@@ -238,12 +187,15 @@
                                   </div> -->
     
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <img [src]="imageUrl" class="image">
                                 <input   (change)="handleFileInput($event.target.files)" #image accept="images/*" name="imageName" 
                                 type="file" class="form-control rounded-0"  required>
+                            </div> -->
+                            <div class="form-group">
+                              <label for="">photo</label>
+                              <input [(ngModel)]="registerUserData.photo" name="photo" type="text" class="form-control rounded-0" placeholder="photo" required>
                             </div>
-
 
                             <button (click)="registerUser()" type="button" class="btn btn-success float-right">
                                 Register
