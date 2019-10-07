@@ -22,7 +22,11 @@ export class AddcompteComponent implements OnInit {
 
   comptes : Icompte[] 
 
-  addCompte : any ={}
+  addCompte : any = [
+    {
+      partenaire : " "
+    }
+  ]
   constructor(private _compteservice : CompteService,
     private _router : Router, private _toastr : ToastrService) { }
 

@@ -15,10 +15,10 @@ export class CompteService {
   private _CompteUrl =  "http://localhost:8000/compte/listerAllCompte";
 
   
-postCompte(data: string){
+postCompte(data){
   console.log(data);
   return this.http.post<any>(this._postcompteUrl
-    ,{"partenaire":data})
+    ,{"id":data})
 }
 
 ListerCompte() :Observable<Icompte[]>{
